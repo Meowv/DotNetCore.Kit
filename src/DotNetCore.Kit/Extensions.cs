@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace DotNetCore.Kit
@@ -483,6 +484,58 @@ namespace DotNetCore.Kit
         public static DateTime EndOfDay(this DateTime @this)
         {
             return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(1.0).Subtract(new TimeSpan(0, 0, 0, 0, 1));
+        }
+
+        /// <summary>
+        /// EnsureEndsWith
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static string EnsureEndsWith(this string str, char c)
+        {
+            return str.EnsureEndsWith(c, StringComparison.InvariantCulture);
+        }
+
+        /// <summary>
+        /// EnsureEndsWith
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="c"></param>
+        /// <param name="ignoreCase"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static string EnsureEndsWith(this string str, char c, bool ignoreCase, CultureInfo culture)
+        {
+            if (str == null)
+            {
+                throw new ArgumentNullException("str");
+            }
+            if (str.EndsWith(c.ToString(culture), ignoreCase, culture))
+            {
+                return str;
+            }
+            return str + c.ToString();
+        }
+
+        /// <summary>
+        /// EnsureEndsWith
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="c"></param>
+        /// <param name="comparisonType"></param>
+        /// <returns></returns>
+        public static string EnsureEndsWith(this string str, char c, StringComparison comparisonType)
+        {
+            if (str == null)
+            {
+                throw new ArgumentNullException("str");
+            }
+            if (str.EndsWith(c.ToString(CultureInfo.InvariantCulture), comparisonType))
+            {
+                return str;
+            }
+            return str + c.ToString();
         }
 
         /// <summary>
