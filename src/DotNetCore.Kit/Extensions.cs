@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Web;
 
 namespace DotNetCore.Kit
 {
@@ -1031,6 +1032,26 @@ namespace DotNetCore.Kit
         public static string GetSubString(this string p_SrcString, int p_StartIndex, int p_Length, string p_TailString)
         {
             return p_SrcString.CutWithCN(p_StartIndex, p_Length, p_TailString);
+        }
+
+        /// <summary>
+        /// HtmlDecode
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="output"></param>
+        public static void HtmlDecode(this string s, TextWriter output)
+        {
+            HttpUtility.HtmlDecode(s, output);
+        }
+
+        /// <summary>
+        /// HtmlDecode
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string HtmlDecode(this string s)
+        {
+            return HttpUtility.HtmlDecode(s);
         }
 
         /// <summary>
