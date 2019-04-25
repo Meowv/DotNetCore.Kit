@@ -1093,17 +1093,6 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// ToInt
-        /// </summary>
-        /// <param name="expression"></param>
-        /// <param name="defValue"></param>
-        /// <returns></returns>
-        public static int ToInt(this object expression, int defValue = 0)
-        {
-            return expression.IfNotNull((object x) => x.ToString().ToInt(), defValue);
-        }
-
-        /// <summary>
         /// IfNotNull
         /// </summary>
         /// <param name="obj"></param>
@@ -1117,7 +1106,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IfNotNull
+        /// IfNotNull<TItem>
         /// </summary>
         /// <typeparam name="TItem"></typeparam>
         /// <param name="item"></param>
@@ -1131,7 +1120,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IfNotNull
+        /// IfNotNull<TResult, TItem>
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
         /// <typeparam name="TItem"></typeparam>
@@ -1142,6 +1131,18 @@ namespace DotNetCore.Kit
         public static TResult IfNotNull<TResult, TItem>(this TItem item, Func<TItem, TResult> action, TResult defaultValue = default) where TItem : class
         {
             return (item != null) ? action(item) : defaultValue;
+        }
+
+        /// <summary>
+        /// IfNull<TItem>
+        /// </summary>
+        /// <typeparam name="TItem"></typeparam>
+        /// <param name="item"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static TItem IfNull<TItem>(this TItem item, Func<TItem, TItem> action) where TItem : class
+        {
+            return item ?? action(item);
         }
 
         /// <summary>
@@ -1192,6 +1193,17 @@ namespace DotNetCore.Kit
         public static string LeftSafe(this string @this, int length)
         {
             return @this.Substring(0, Math.Min(length, @this.Length));
+        }
+
+        /// <summary>
+        /// ToInt
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static int ToInt(this object expression, int defValue = 0)
+        {
+            return expression.IfNotNull((object x) => x.ToString().ToInt(), defValue);
         }
     }
 }
