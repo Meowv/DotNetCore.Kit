@@ -1055,6 +1055,26 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// HtmlEncode
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string HtmlEncode(this string s)
+        {
+            return HttpUtility.HtmlEncode(s);
+        }
+
+        /// <summary>
+        /// HtmlEncode
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="output"></param>
+        public static void HtmlEncode(this string s, TextWriter output)
+        {
+            HttpUtility.HtmlEncode(s, output);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
