@@ -577,6 +577,28 @@ namespace DotNetCore.Kit
             return str;
         }
 
+        /// <summary>
+        /// EnsureNumericOnly
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string EnsureNumericOnly(this string str)
+        {
+            if (str.IsNullOrEmpty())
+            {
+                return string.Empty;
+            }
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (char c in str)
+            {
+                if (char.IsDigit(c))
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+            return stringBuilder.ToString();
+        }
+
 
         /// <summary>
         /// IfTrue
