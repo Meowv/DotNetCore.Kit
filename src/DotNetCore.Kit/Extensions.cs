@@ -476,6 +476,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// EndOfDay
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime EndOfDay(this DateTime @this)
+        {
+            return new DateTime(@this.Year, @this.Month, @this.Day).AddDays(1.0).Subtract(new TimeSpan(0, 0, 0, 0, 1));
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
