@@ -1157,6 +1157,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// IfNullSetEmpty
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string IfNullSetEmpty(this string value)
+        {
+            return value ?? string.Empty;
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
