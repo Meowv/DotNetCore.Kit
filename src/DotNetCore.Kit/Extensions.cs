@@ -144,24 +144,6 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IfTrue
-        /// </summary>
-        /// <param name="this"></param>
-        /// <param name="trueAction"></param>
-        /// <param name="falseAction"></param>
-        public static void IfTrue(this bool @this, Action trueAction, Action falseAction = null)
-        {
-            if (@this)
-            {
-                trueAction();
-            }
-            else
-            {
-                falseAction?.Invoke();
-            }
-        }
-
-        /// <summary>
         /// ConcatWith
         /// </summary>
         /// <param name="this"></param>
@@ -391,6 +373,85 @@ namespace DotNetCore.Kit
         public static string CutWithCN(this string p_SrcString, int p_Length, string p_TailString)
         {
             return p_SrcString.CutWithCN(0, p_Length, p_TailString);
+        }
+
+        /// <summary>
+        /// CutWithPostfix
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="maxLength"></param>
+        /// <returns></returns>
+        public static string CutWithPostfix(this string str, int maxLength)
+        {
+            return str.CutWithPostfix(maxLength, "...");
+        }
+
+        /// <summary>
+        /// CutWithPostfix
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="maxLength"></param>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static string CutWithPostfix(this string str, int maxLength, string postfix)
+        {
+            if (str == null)
+            {
+                return null;
+            }
+            if (str == string.Empty || maxLength == 0)
+            {
+                return string.Empty;
+            }
+            if (str.Length <= maxLength)
+            {
+                return str;
+            }
+            if (maxLength <= postfix.Length)
+            {
+                return postfix.Left(maxLength);
+            }
+            return str.Left(maxLength - postfix.Length) + postfix;
+        }
+
+        /// <summary>
+        /// IfTrue
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="trueAction"></param>
+        /// <param name="falseAction"></param>
+        public static void IfTrue(this bool @this, Action trueAction, Action falseAction = null)
+        {
+            if (@this)
+            {
+                trueAction();
+            }
+            else
+            {
+                falseAction?.Invoke();
+            }
+        }
+
+        /// <summary>
+        /// Left
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string Left(this string @this, int length)
+        {
+            return @this.LeftSafe(length);
+        }
+
+        /// <summary>
+        /// LeftSafe
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string LeftSafe(this string @this, int length)
+        {
+            return @this.Substring(0, Math.Min(length, @this.Length));
         }
     }
 }
