@@ -1260,11 +1260,17 @@ namespace DotNetCore.Kit
             return !Regex.IsMatch(@this, "[^a-zA-Z0-9]");
         }
 
-
+        /// <summary>
+        /// IsAsync
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
         public static bool IsAsync(this MethodInfo method)
         {
-
+            return method.ReturnType == typeof(Task) || (method.ReturnType.GetTypeInfo().IsGenericType && method.ReturnType.GetGenericTypeDefinition() == typeof(Task<>));
         }
+
+
         public static bool IsBool(this Type type)
         {
 
