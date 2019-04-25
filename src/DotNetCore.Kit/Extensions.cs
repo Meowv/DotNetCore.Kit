@@ -1290,9 +1290,15 @@ namespace DotNetCore.Kit
         {
             return @this == "";
         }
+
+        /// <summary>
+        /// IsEnum
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsEnum(this Type type)
         {
-
+            return type.IsEnum;
         }
         public static bool IsGenericType(this Type type)
         {
