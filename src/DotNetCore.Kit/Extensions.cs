@@ -305,5 +305,22 @@ namespace DotNetCore.Kit
         {
             return string.Copy(str);
         }
+
+        /// <summary>
+        /// Cut
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="maxLength"></param>
+        /// <param name="suffix"></param>
+        /// <returns></returns>
+        public static string Cut(this string @this, int maxLength, string suffix = "...")
+        {
+            if (@this == null || @this.Length <= maxLength)
+            {
+                return @this;
+            }
+            int length = maxLength - suffix.Length;
+            return @this.Substring(0, length) + suffix;
+        }
     }
 }
