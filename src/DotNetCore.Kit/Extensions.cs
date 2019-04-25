@@ -95,5 +95,15 @@ namespace DotNetCore.Kit
         {
             return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
         }
+
+        /// <summary>
+        /// Br2Nl
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string Br2Nl(this string @this)
+        {
+            return @this.Replace("<br />", "\r\n").Replace("<br>", "\r\n");
+        }
     }
 }
