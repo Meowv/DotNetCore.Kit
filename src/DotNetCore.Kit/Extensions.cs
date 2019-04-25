@@ -435,6 +435,27 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Elapsed
+        /// </summary>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <returns></returns>
+        public static TimeSpan Elapsed(this DateTime startTime, DateTime endTime)
+        {
+            return startTime - endTime;
+        }
+
+        /// <summary>
+        /// Elapsed
+        /// </summary>
+        /// <param name="datetime"></param>
+        /// <returns></returns>
+        public static TimeSpan Elapsed(this DateTime datetime)
+        {
+            return DateTime.Now - datetime;
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
