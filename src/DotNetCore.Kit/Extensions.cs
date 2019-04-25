@@ -83,5 +83,17 @@ namespace DotNetCore.Kit
         {
             return (T)obj;
         }
+
+        /// <summary>
+        /// Between
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
+        public static bool Between(this DateTime @this, DateTime minValue, DateTime maxValue)
+        {
+            return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
+        }
     }
 }
