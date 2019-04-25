@@ -1197,6 +1197,39 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// InvokeSafely
+        /// </summary>
+        /// <param name="eventHandler"></param>
+        /// <param name="sender"></param>
+        public static void InvokeSafely(this EventHandler eventHandler, object sender)
+        {
+            eventHandler.InvokeSafely(sender, EventArgs.Empty);
+        }
+
+        /// <summary>
+        /// InvokeSafely
+        /// </summary>
+        /// <param name="eventHandler"></param>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public static void InvokeSafely(this EventHandler eventHandler, object sender, EventArgs e)
+        {
+            eventHandler?.Invoke(sender, e);
+        }
+
+        /// <summary>
+        /// InvokeSafely<TEventArgs>
+        /// </summary>
+        /// <typeparam name="TEventArgs"></typeparam>
+        /// <param name="eventHandler"></param>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public static void InvokeSafely<TEventArgs>(this EventHandler<TEventArgs> eventHandler, object sender, TEventArgs e) where TEventArgs : EventArgs
+        {
+            eventHandler?.Invoke(sender, e);
+        }
+
+        /// <summary>
         /// IsNullOrEmpty
         /// </summary>
         /// <param name="this"></param>
