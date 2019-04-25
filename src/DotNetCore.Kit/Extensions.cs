@@ -836,6 +836,122 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// GetIndexAfterNextDoubleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="allowEscape"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, bool allowEscape)
+        {
+            return @this.GetIndexAfterNextDoubleQuote(0, allowEscape);
+        }
+
+        /// <summary>
+        /// GetIndexAfterNextDoubleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this)
+        {
+            return @this.GetIndexAfterNextDoubleQuote(0, allowEscape: false);
+        }
+
+        /// <summary>
+        /// GetIndexAfterNextDoubleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="startIndex"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, int startIndex)
+        {
+            return @this.GetIndexAfterNextDoubleQuote(startIndex, allowEscape: false);
+        }
+
+        /// <summary>
+        /// GetIndexAfterNextDoubleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="allowEscape"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, int startIndex, bool allowEscape)
+        {
+            while (startIndex < @this.Length)
+            {
+                char c = @this[startIndex];
+                startIndex++;
+                char c2;
+                if (allowEscape && c == '\\' && startIndex < @this.Length && ((c2 = @this[startIndex]) == '\\' || c2 == '"'))
+                {
+                    startIndex++;
+                }
+                else if (c == '"')
+                {
+                    return startIndex;
+                }
+            }
+            return startIndex;
+        }
+
+        /// <summary>
+        /// GetIndexAfterNextSingleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextSingleQuote(this StringBuilder @this)
+        {
+            return @this.GetIndexAfterNextSingleQuote(0, allowEscape: false);
+        }
+
+        /// <summary>
+        /// GetIndexAfterNextSingleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="allowEscape"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextSingleQuote(this StringBuilder @this, bool allowEscape)
+        {
+            return @this.GetIndexAfterNextSingleQuote(0, allowEscape);
+        }
+
+        /// <summary>
+        /// GetIndexAfterNextSingleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="startIndex"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextSingleQuote(this StringBuilder @this, int startIndex)
+        {
+            return @this.GetIndexAfterNextSingleQuote(startIndex, allowEscape: false);
+        }
+
+        /// <summary>
+        /// GetIndexAfterNextSingleQuote
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="allowEscape"></param>
+        /// <returns></returns>
+        public static int GetIndexAfterNextSingleQuote(this StringBuilder @this, int startIndex, bool allowEscape)
+        {
+            while (startIndex < @this.Length)
+            {
+                char c = @this[startIndex];
+                startIndex++;
+                char c2;
+                if (allowEscape && c == '\\' && startIndex < @this.Length && ((c2 = @this[startIndex]) == '\\' || c2 == '\''))
+                {
+                    startIndex++;
+                }
+                else if (c == '\'')
+                {
+                    return startIndex;
+                }
+            }
+            return startIndex;
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
