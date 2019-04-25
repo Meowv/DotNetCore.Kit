@@ -539,6 +539,31 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// EnsureMaximumLength
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="maxLength"></param>
+        /// <param name="postfix"></param>
+        /// <returns></returns>
+        public static string EnsureMaximumLength(this string str, int maxLength, string postfix = null)
+        {
+            if (str.IsNullOrEmpty())
+            {
+                return str;
+            }
+            if (str.Length > maxLength)
+            {
+                string text = str.Substring(0, maxLength);
+                if (!string.IsNullOrEmpty(postfix))
+                {
+                    text += postfix;
+                }
+                return text;
+            }
+            return str;
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
@@ -554,6 +579,16 @@ namespace DotNetCore.Kit
             {
                 falseAction?.Invoke();
             }
+        }
+
+        /// <summary>
+        /// IsNullOrEmpty
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsNullOrEmpty(this string @this)
+        {
+            return string.IsNullOrEmpty(@this);
         }
 
         /// <summary>
