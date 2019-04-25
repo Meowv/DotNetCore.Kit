@@ -218,5 +218,42 @@ namespace DotNetCore.Kit
         {
             return str0 + str1;
         }
+
+        /// <summary>
+        /// ContainsAll
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool ContainsAll(this string @this, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (@this.IndexOf(value) == -1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// ContainsAll
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="comparisonType"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool ContainsAll(this string @this, StringComparison comparisonType, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (@this.IndexOf(value, comparisonType) == -1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
