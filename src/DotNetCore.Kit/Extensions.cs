@@ -425,6 +425,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// DecodeUTF8Base64
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string DecodeUTF8Base64(this string @this)
+        {
+            return Encoding.UTF8.GetString(Convert.FromBase64String(@this));
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
