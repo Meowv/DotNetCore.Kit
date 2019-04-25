@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 using System.Text;
 
 namespace DotNetCore.Kit
@@ -778,6 +779,16 @@ namespace DotNetCore.Kit
         public static string FormatWith(this string @this, object arg0)
         {
             return string.Format(@this, arg0);
+        }
+
+        /// <summary>
+        /// Assembly
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static Assembly GetAssembly(this Type type)
+        {
+            return type.GetTypeInfo().Assembly;
         }
 
         /// <summary>
