@@ -415,6 +415,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// DecodeBase64
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string DecodeBase64(this string @this)
+        {
+            return Encoding.ASCII.GetString(Convert.FromBase64String(@this));
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
