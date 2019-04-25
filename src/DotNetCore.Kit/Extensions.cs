@@ -72,5 +72,16 @@ namespace DotNetCore.Kit
             }
             return @this;
         }
+
+        /// <summary>
+        /// As<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static T As<T>(this object obj) where T : class
+        {
+            return (T)obj;
+        }
     }
 }
