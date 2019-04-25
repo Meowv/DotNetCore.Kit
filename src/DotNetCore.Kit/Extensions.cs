@@ -952,6 +952,59 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// GetProperty
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static PropertyInfo GetProperty(this Type type, string name)
+        {
+            return type.GetProperty(name);
+        }
+
+        /// <summary>
+        /// GetSingleAttributeOfTypeOrBaseTypesOrNull
+        /// </summary>
+        /// <typeparam name="TAttribute"></typeparam>
+        /// <param name="type"></param>
+        /// <param name="inherit"></param>
+        /// <returns></returns>
+        public static TAttribute GetSingleAttributeOfTypeOrBaseTypesOrNull<TAttribute>(this Type type, bool inherit = true) where TAttribute : Attribute
+        {
+            TAttribute singleAttributeOrNull = type.GetTypeInfo().GetSingleAttributeOrNull<TAttribute>();
+            if (singleAttributeOrNull != null)
+            {
+                return singleAttributeOrNull;
+            }
+            if (type.GetTypeInfo().BaseType == null)
+            {
+                return null;
+            }
+            return type.GetTypeInfo().BaseType.GetSingleAttributeOfTypeOrBaseTypesOrNull<TAttribute>(inherit);
+        }
+
+        /// <summary>
+        /// GetSingleAttributeOrNull
+        /// </summary>
+        /// <typeparam name="TAttribute"></typeparam>
+        /// <param name="memberInfo"></param>
+        /// <param name="inherit"></param>
+        /// <returns></returns>
+        public static TAttribute GetSingleAttributeOrNull<TAttribute>(this MemberInfo memberInfo, bool inherit = true) where TAttribute : Attribute
+        {
+            if (memberInfo == null)
+            {
+                throw new ArgumentNullException("memberInfo");
+            }
+            object[] array = memberInfo.GetCustomAttributes(typeof(TAttribute), inherit).ToArray();
+            if (array.Length != 0)
+            {
+                return (TAttribute)array[0];
+            }
+            return null;
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
