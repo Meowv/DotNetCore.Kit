@@ -1250,10 +1250,17 @@ namespace DotNetCore.Kit
             return !Regex.IsMatch(@this, "[^a-zA-Z]");
         }
 
+        /// <summary>
+        /// IsAlphaNumeric
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsAlphaNumeric(this string @this)
         {
-
+            return !Regex.IsMatch(@this, "[^a-zA-Z0-9]");
         }
+
+
         public static bool IsAsync(this MethodInfo method)
         {
 
