@@ -295,5 +295,15 @@ namespace DotNetCore.Kit
             }
             return false;
         }
+
+        /// <summary>
+        /// Copy
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string Copy(this string str)
+        {
+            return string.Copy(str);
+        }
     }
 }
