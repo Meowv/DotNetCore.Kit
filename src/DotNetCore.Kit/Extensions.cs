@@ -1185,6 +1185,18 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// InRange
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
+        public static bool InRange(this DateTime @this, DateTime minValue, DateTime maxValue)
+        {
+            return @this.CompareTo(minValue) >= 0 && @this.CompareTo(maxValue) <= 0;
+        }
+
+        /// <summary>
         /// IsNullOrEmpty
         /// </summary>
         /// <param name="this"></param>
