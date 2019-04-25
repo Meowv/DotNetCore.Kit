@@ -674,6 +674,19 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// For
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="action"></param>
+        public static void For(this int n, Action<int> action)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                action(i);
+            }
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
