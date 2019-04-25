@@ -1146,6 +1146,17 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// IfNullOrEmpty
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static string IfNullOrEmpty(this string value, string defaultValue = "")
+        {
+            return value.IsNotNullOrEmpty() ? value : defaultValue;
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
