@@ -1185,6 +1185,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// IsNotNullOrEmpty
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsNotNullOrEmpty(this string @this)
+        {
+            return !string.IsNullOrEmpty(@this);
+        }
+
+        /// <summary>
         /// Left
         /// </summary>
         /// <param name="this"></param>
