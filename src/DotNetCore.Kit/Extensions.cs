@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Reflection;
 using System.Text;
 
@@ -800,6 +801,17 @@ namespace DotNetCore.Kit
         public static T GetAttribute<T>(this MethodBase methodInfo) where T : class
         {
             return methodInfo.GetCustomAttribute(typeof(T)) as T;
+        }
+
+        /// <summary>
+        /// GetDirectoryPathOrNull
+        /// </summary>
+        /// <param name="assembly"></param>
+        /// <returns></returns>
+        public static string GetDirectoryPathOrNull(this Assembly assembly)
+        {
+            string location = assembly.Location;
+            return location == null ? null : new FileInfo(location).Directory?.FullName;
         }
 
         /// <summary>
