@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace DotNetCore.Kit
@@ -1239,10 +1240,16 @@ namespace DotNetCore.Kit
             return @this.TimeOfDay >= new DateTime(1995, 1, 1, 12, 0, 0).TimeOfDay;
         }
 
+        /// <summary>
+        /// IsAlpha
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsAlpha(this string @this)
         {
-
+            return !Regex.IsMatch(@this, "[^a-zA-Z]");
         }
+
         public static bool IsAlphaNumeric(this string @this)
         {
 
