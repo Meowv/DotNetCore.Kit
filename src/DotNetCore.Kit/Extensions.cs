@@ -564,6 +564,21 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// EnsureNotNull
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string EnsureNotNull(this string str)
+        {
+            if (str == null)
+            {
+                return string.Empty;
+            }
+            return str;
+        }
+
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
