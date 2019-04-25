@@ -651,6 +651,27 @@ namespace DotNetCore.Kit
             return c.ToString() + str;
         }
 
+        /// <summary>
+        /// ExistInEnum<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool ExistInEnum<T>(this int value)
+        {
+            Type typeFromHandle = typeof(T);
+            bool result = false;
+            string[] names = Enum.GetNames(typeFromHandle);
+            foreach (string value2 in names)
+            {
+                if (Enum.Format(typeFromHandle, Enum.Parse(typeFromHandle, value2), "d").ToInt() == value)
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
+        }
 
         /// <summary>
         /// IfTrue
