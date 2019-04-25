@@ -815,6 +815,27 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// GetFileName
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public static string GetFileName(this string url)
+        {
+            if (url == null)
+            {
+                return "";
+            }
+            string[] array = url.Split(new char[1]
+            {
+            '/'
+            });
+            return array[array.Length - 1].Split(new char[1]
+            {
+            '?'
+            })[0];
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
