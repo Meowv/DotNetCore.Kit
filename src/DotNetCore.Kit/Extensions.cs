@@ -687,6 +687,53 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Format
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="arg0"></param>
+        /// <param name="arg1"></param>
+        /// <returns></returns>
+        public static string Format(this string format, object arg0, object arg1)
+        {
+            return string.Format(format, arg0, arg1);
+        }
+
+        /// <summary>
+        /// Format
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static string Format(this string format, object[] args)
+        {
+            return string.Format(format, args);
+        }
+
+        /// <summary>
+        /// Format
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="arg0"></param>
+        /// <param name="arg1"></param>
+        /// <param name="arg2"></param>
+        /// <returns></returns>
+        public static string Format(this string format, object arg0, object arg1, object arg2)
+        {
+            return string.Format(format, arg0, arg1, arg2);
+        }
+
+        /// <summary>
+        /// Format
+        /// </summary>
+        /// <param name="format"></param>
+        /// <param name="arg0"></param>
+        /// <returns></returns>
+        public static string Format(this string format, object arg0)
+        {
+            return string.Format(format, arg0);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
