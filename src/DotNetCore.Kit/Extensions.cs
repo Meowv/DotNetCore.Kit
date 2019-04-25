@@ -782,13 +782,24 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// Assembly
+        /// GetAssembly
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         public static Assembly GetAssembly(this Type type)
         {
             return type.GetTypeInfo().Assembly;
+        }
+
+        /// <summary>
+        /// GetAttribute<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="methodInfo"></param>
+        /// <returns></returns>
+        public static T GetAttribute<T>(this MethodBase methodInfo) where T : class
+        {
+            return methodInfo.GetCustomAttribute(typeof(T)) as T;
         }
 
         /// <summary>
