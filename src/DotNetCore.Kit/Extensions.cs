@@ -456,6 +456,26 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// EncodeBase64
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string EncodeBase64(this string @this)
+        {
+            return Convert.ToBase64String(Activator.CreateInstance<ASCIIEncoding>().GetBytes(@this));
+        }
+
+        /// <summary>
+        /// EncodeUTF8Base64
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string EncodeUTF8Base64(this string @this)
+        {
+            return Encoding.UTF8.GetString(Convert.FromBase64String(@this));
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
