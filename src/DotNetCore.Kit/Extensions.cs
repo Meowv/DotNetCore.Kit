@@ -1300,9 +1300,15 @@ namespace DotNetCore.Kit
         {
             return type.IsEnum;
         }
+
+        /// <summary>
+        /// IsGenericType
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsGenericType(this Type type)
         {
-
+            return type.IsGenericType;
         }
         public static bool IsIn<T>(this T item, params T[] list)
         {
