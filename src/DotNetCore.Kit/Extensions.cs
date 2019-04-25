@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace DotNetCore.Kit
@@ -1270,10 +1271,14 @@ namespace DotNetCore.Kit
             return method.ReturnType == typeof(Task) || (method.ReturnType.GetTypeInfo().IsGenericType && method.ReturnType.GetGenericTypeDefinition() == typeof(Task<>));
         }
 
-
+        /// <summary>
+        /// IsBool
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsBool(this Type type)
         {
-
+            return type == typeof(bool);
         }
         public static bool IsEmpty(this string @this)
         {
