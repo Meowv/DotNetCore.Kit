@@ -157,5 +157,66 @@ namespace DotNetCore.Kit
                 falseAction?.Invoke();
             }
         }
+
+        /// <summary>
+        /// ConcatWith
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static string ConcatWith(this string @this, params string[] values)
+        {
+            return @this + values;
+        }
+
+        /// <summary>
+        /// ConcatWith
+        /// </summary>
+        /// <param name="str0"></param>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <param name="str3"></param>
+        /// <param name="str4"></param>
+        /// <returns></returns>
+        public static string ConcatWith(this string str0, string str1, string str2, string str3, string str4)
+        {
+            return str0 + str1 + str2 + str3 + str4;
+        }
+
+        /// <summary>
+        /// ConcatWith
+        /// </summary>
+        /// <param name="str0"></param>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <param name="str3"></param>
+        /// <returns></returns>
+        public static string ConcatWith(this string str0, string str1, string str2, string str3)
+        {
+            return str0 + str1 + str2 + str3;
+        }
+
+        /// <summary>
+        /// ConcatWith
+        /// </summary>
+        /// <param name="str0"></param>
+        /// <param name="str1"></param>
+        /// <param name="str2"></param>
+        /// <returns></returns>
+        public static string ConcatWith(this string str0, string str1, string str2)
+        {
+            return str0 + str1 + str2;
+        }
+
+        /// <summary>
+        /// ConcatWith
+        /// </summary>
+        /// <param name="str0"></param>
+        /// <param name="str1"></param>
+        /// <returns></returns>
+        public static string ConcatWith(this string str0, string str1)
+        {
+            return str0 + str1;
+        }
     }
 }
