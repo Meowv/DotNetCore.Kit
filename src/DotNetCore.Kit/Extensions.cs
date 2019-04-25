@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 
@@ -1002,6 +1003,34 @@ namespace DotNetCore.Kit
                 return (TAttribute)array[0];
             }
             return null;
+        }
+
+        /// <summary>
+        /// GetSpacesString
+        /// </summary>
+        /// <param name="spacesCount"></param>
+        /// <returns></returns>
+        public static string GetSpacesString(this int spacesCount)
+        {
+            StringBuilder sb = new StringBuilder();
+            spacesCount.For(delegate
+            {
+                sb.Append(" &nbsp;&nbsp;");
+            });
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// GetSubString
+        /// </summary>
+        /// <param name="p_SrcString"></param>
+        /// <param name="p_StartIndex"></param>
+        /// <param name="p_Length"></param>
+        /// <param name="p_TailString"></param>
+        /// <returns></returns>
+        public static string GetSubString(this string p_SrcString, int p_StartIndex, int p_Length, string p_TailString)
+        {
+            return p_SrcString.CutWithCN(p_StartIndex, p_Length, p_TailString);
         }
 
         /// <summary>
