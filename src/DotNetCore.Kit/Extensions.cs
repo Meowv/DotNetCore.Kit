@@ -1230,15 +1230,75 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IsNullOrEmpty
+        /// IsAfternoon
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty(this string @this)
+        public static bool IsAfternoon(this DateTime @this)
         {
-            return string.IsNullOrEmpty(@this);
+            return @this.TimeOfDay >= new DateTime(1995, 1, 1, 12, 0, 0).TimeOfDay;
         }
 
+        public static bool IsAlpha(this string @this)
+        {
+
+        }
+        public static bool IsAlphaNumeric(this string @this)
+        {
+
+        }
+        public static bool IsAsync(this MethodInfo method)
+        {
+
+        }
+        public static bool IsBool(this Type type)
+        {
+
+        }
+        public static bool IsEmpty(this string @this)
+        {
+
+        }
+        public static bool IsEnum(this Type type)
+        {
+
+        }
+        public static bool IsGenericType(this Type type)
+        {
+
+        }
+        public static bool IsIn<T>(this T item, params T[] list)
+        {
+
+        }
+        public static bool IsMatch(this string input, string pattern)
+        {
+
+        }
+        public static bool IsMatch(this string input, string pattern, RegexOptions options)
+        {
+
+        }
+        public static bool IsMorning(this DateTime @this)
+        {
+
+        }
+        public static bool IsNotEmpty(this string @this)
+        {
+
+        }
+        public static bool IsNotNull(this object obj)
+        {
+
+        }
+        public static bool IsNotNull(this string @this)
+        {
+
+        }
+        public static bool IsNotNullOrDefault<T>(this T obj) where T : class
+        {
+
+        }
         /// <summary>
         /// IsNotNullOrEmpty
         /// </summary>
@@ -1247,6 +1307,71 @@ namespace DotNetCore.Kit
         public static bool IsNotNullOrEmpty(this string @this)
         {
             return !string.IsNullOrEmpty(@this);
+        }
+        public static bool IsNotNullOrWhiteSpace(this string value)
+        {
+
+        }
+        public static bool IsNow(this DateTime @this)
+        {
+
+        }
+        public static bool IsNull(this string @this)
+        {
+
+        }
+        public static bool IsNull(this object obj)
+        {
+
+        }
+        public static bool IsNullableType(this Type @this)
+        {
+
+        }
+        /// <summary>
+        /// IsNullOrEmpty
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsNullOrEmpty(this string @this)
+        {
+            return string.IsNullOrEmpty(@this);
+        }
+        public static bool IsNullOrWhiteSpace(this string value)
+        {
+
+        }
+        public static bool IsNumeric(this string @this)
+        {
+
+        }
+        public static bool IsUrl(this string strUrl)
+        {
+
+        }
+        public static bool IsValidBase64String(this string str)
+        {
+
+        }
+        public static bool IsValidEmail(this string obj)
+        {
+
+        }
+        public static bool IsValidIP(this string obj)
+        {
+
+        }
+        public static bool IsValidMobile(string mobile)
+        {
+
+        }
+        public static bool IsValidSafeSqlString(this string str)
+        {
+
+        }
+        public static bool IsValueType(this Type type)
+        {
+
         }
 
         /// <summary>
