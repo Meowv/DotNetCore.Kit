@@ -105,5 +105,57 @@ namespace DotNetCore.Kit
         {
             return @this.Replace("<br />", "\r\n").Replace("<br>", "\r\n");
         }
+
+        /// <summary>
+        /// CombineApiUrl
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="url"></param>
+        /// <param name="isSsl"></param>
+        /// <returns></returns>
+        public static string CombineApiUrl(this string host, string url, bool isSsl = false)
+        {
+            string returnUrl = "";
+            if (host.EndsWith("/"))
+            {
+                returnUrl = host + url.TrimStart('/');
+            }
+            else
+            {
+                returnUrl = host + "/" + url.TrimStart('/');
+            }
+            isSsl.IfTrue(delegate
+            {
+                if (!returnUrl.Contains("https://"))
+                {
+                    returnUrl = returnUrl + "https://" + returnUrl;
+                }
+            }, delegate
+            {
+                if (!returnUrl.Contains("http://"))
+                {
+                    returnUrl = returnUrl + "http://" + returnUrl;
+                }
+            });
+            return returnUrl;
+        }
+
+        /// <summary>
+        /// IfTrue
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="trueAction"></param>
+        /// <param name="falseAction"></param>
+        public static void IfTrue(this bool @this, Action trueAction, Action falseAction = null)
+        {
+            if (@this)
+            {
+                trueAction();
+            }
+            else
+            {
+                falseAction?.Invoke();
+            }
+        }
     }
 }
