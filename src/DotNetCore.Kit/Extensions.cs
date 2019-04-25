@@ -1075,6 +1075,24 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// IfFalse
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="trueAction"></param>
+        /// <param name="falseAction"></param>
+        public static void IfFalse(this bool @this, Action trueAction, Action falseAction = null)
+        {
+            if (!@this)
+            {
+                trueAction();
+            }
+            else
+            {
+                falseAction?.Invoke();
+            }
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
