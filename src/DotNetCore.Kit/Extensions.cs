@@ -322,5 +322,75 @@ namespace DotNetCore.Kit
             int length = maxLength - suffix.Length;
             return @this.Substring(0, length) + suffix;
         }
+
+        /// <summary>
+        /// CutWithCN
+        /// </summary>
+        /// <param name="p_SrcString"></param>
+        /// <param name="p_StartIndex"></param>
+        /// <param name="p_Length"></param>
+        /// <param name="p_TailString"></param>
+        /// <returns></returns>
+        public static string CutWithCN(this string p_SrcString, int p_StartIndex, int p_Length, string p_TailString)
+        {
+            string result = p_SrcString;
+            if (p_Length >= 0)
+            {
+                byte[] bytes = Encoding.Default.GetBytes(p_SrcString);
+                if (bytes.Length > p_StartIndex)
+                {
+                    int num = bytes.Length;
+                    if (bytes.Length > p_StartIndex + p_Length)
+                    {
+                        num = p_Length + p_StartIndex;
+                    }
+                    else
+                    {
+                        p_Length = bytes.Length - p_StartIndex;
+                        p_TailString = "";
+                    }
+                    int num2 = p_Length;
+                    int[] array = new int[p_Length];
+                    int num3 = 0;
+                    for (int i = p_StartIndex; i < num; i++)
+                    {
+                        if (bytes[i] > 127)
+                        {
+                            num3++;
+                            if (num3 == 3)
+                            {
+                                num3 = 1;
+                            }
+                        }
+                        else
+                        {
+                            num3 = 0;
+                        }
+                        array[i] = num3;
+                    }
+                    if (bytes[num - 1] > 127 && array[p_Length - 1] == 1)
+                    {
+                        num2 = p_Length + 1;
+                    }
+                    byte[] array2 = new byte[num2];
+                    Array.Copy(bytes, p_StartIndex, array2, 0, num2);
+                    result = Encoding.Default.GetString(array2);
+                    result += p_TailString;
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// CutWithCN
+        /// </summary>
+        /// <param name="p_SrcString"></param>
+        /// <param name="p_Length"></param>
+        /// <param name="p_TailString"></param>
+        /// <returns></returns>
+        public static string CutWithCN(this string p_SrcString, int p_Length, string p_TailString)
+        {
+            return p_SrcString.CutWithCN(0, p_Length, p_TailString);
+        }
     }
 }
