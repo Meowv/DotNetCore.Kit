@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DotNetCore.Kit
 {
+    /// <summary>
+    /// Extensions
+    /// </summary>
     public static class Extensions
     {
         /// <summary>
@@ -254,6 +257,43 @@ namespace DotNetCore.Kit
                 }
             }
             return true;
+        }
+
+        /// <summary>
+        /// ContainsAny
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool ContainsAny(this string @this, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (@this.IndexOf(value) != -1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// ContainsAny
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="comparisonType"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static bool ContainsAny(this string @this, StringComparison comparisonType, params string[] values)
+        {
+            foreach (string value in values)
+            {
+                if (@this.IndexOf(value, comparisonType) != -1)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
