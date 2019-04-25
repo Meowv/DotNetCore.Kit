@@ -674,6 +674,58 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ToInt
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static int ToInt(this object expression, int defValue = 0)
+        {
+            return expression.IfNotNull((object x) => x.ToString().ToInt(), defValue);
+        }
+
+        /// <summary>
+        /// IfNotNull
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="action"></param>
+        public static void IfNotNull(this object obj, Action action)
+        {
+            if (obj != null)
+            {
+                action();
+            }
+        }
+
+        /// <summary>
+        /// IfNotNull
+        /// </summary>
+        /// <typeparam name="TItem"></typeparam>
+        /// <param name="item"></param>
+        /// <param name="action"></param>
+        public static void IfNotNull<TItem>(this TItem item, Action<TItem> action) where TItem : class
+        {
+            if (item != null)
+            {
+                action(item);
+            }
+        }
+
+        /// <summary>
+        /// IfNotNull
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <typeparam name="TItem"></typeparam>
+        /// <param name="item"></param>
+        /// <param name="action"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static TResult IfNotNull<TResult, TItem>(this TItem item, Func<TItem, TResult> action, TResult defaultValue = default) where TItem : class
+        {
+            return (item != null) ? action(item) : defaultValue;
+        }
+
+        /// <summary>
         /// IfTrue
         /// </summary>
         /// <param name="this"></param>
