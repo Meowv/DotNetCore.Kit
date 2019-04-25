@@ -1280,9 +1280,15 @@ namespace DotNetCore.Kit
         {
             return type == typeof(bool);
         }
+
+        /// <summary>
+        /// IsEmpty
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsEmpty(this string @this)
         {
-
+            return @this == "";
         }
         public static bool IsEnum(this Type type)
         {
