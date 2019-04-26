@@ -2469,6 +2469,25 @@ namespace DotNetCore.Kit
         /// <summary>
         /// ToInt
         /// </summary>
+        /// <param name="str"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static int ToInt(this string str, int defValue = 0)
+        {
+            if (string.IsNullOrEmpty(str) || str.Trim().Length >= 11 || !Regex.IsMatch(str.Trim(), "^([-]|[0-9])[0-9]*(\\.\\w*)?$"))
+            {
+                return defValue;
+            }
+            if (int.TryParse(str, out int result))
+            {
+                return result;
+            }
+            return Convert.ToInt32(str.ToFloat(defValue));
+        }
+
+        /// <summary>
+        /// ToInt
+        /// </summary>
         /// <param name="expression"></param>
         /// <param name="defValue"></param>
         /// <returns></returns>
