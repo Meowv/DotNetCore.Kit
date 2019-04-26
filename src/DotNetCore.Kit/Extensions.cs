@@ -2495,5 +2495,28 @@ namespace DotNetCore.Kit
         {
             return expression.IfNotNull((object x) => x.ToString().ToInt(), defValue);
         }
+
+        /// <summary>
+        /// ToList
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="segmentStr"></param>
+        /// <returns></returns>
+        public static List<string> ToList(this string input, char segmentStr = ',')
+        {
+            List<string> list = new List<string>();
+            if (input.IsNotNullOrEmpty())
+            {
+                string[] array = input.Split(segmentStr);
+                foreach (string text in array)
+                {
+                    if (text.IsNotNullOrEmpty())
+                    {
+                        list.Add(text);
+                    }
+                }
+            }
+            return list;
+        }
     }
 }
