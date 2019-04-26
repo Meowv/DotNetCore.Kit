@@ -2455,6 +2455,18 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ToGuid
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static Guid ToGuid(this int value)
+        {
+            byte[] array = new byte[16];
+            BitConverter.GetBytes(value).CopyTo(array, 0);
+            return new Guid(array);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
