@@ -2061,6 +2061,21 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ReplaceByEmpty
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static string ReplaceByEmpty(this string @this, params string[] values)
+        {
+            foreach (string oldValue in values)
+            {
+                @this = @this.Replace(oldValue, "");
+            }
+            return @this;
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
