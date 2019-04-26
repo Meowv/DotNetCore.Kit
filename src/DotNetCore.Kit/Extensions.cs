@@ -1765,6 +1765,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Nl2Br
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string Nl2Br(this string @this)
+        {
+            return @this.Replace("\r\n", "<br />").Replace("\n", "<br />");
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
