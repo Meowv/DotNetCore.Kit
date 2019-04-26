@@ -1426,14 +1426,28 @@ namespace DotNetCore.Kit
         {
             return @this == DateTime.Now;
         }
+
+        /// <summary>
+        /// IsNull
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsNull(this string @this)
         {
-
+            return @this == null;
         }
+
+        /// <summary>
+        /// IsNull
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool IsNull(this object obj)
         {
-
+            return obj == null;
         }
+
+
         public static bool IsNullableType(this Type @this)
         {
 
