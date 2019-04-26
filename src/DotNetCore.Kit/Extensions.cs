@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -2193,6 +2194,88 @@ namespace DotNetCore.Kit
         public static string[] SplitToLines(this string str)
         {
             return str.Split(Environment.NewLine);
+        }
+
+        /// <summary>
+        /// SqlTypeNameToSqlDbType
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static SqlDbType SqlTypeNameToSqlDbType(this string @this)
+        {
+            switch (@this.ToLower())
+            {
+                case "image":
+                    return SqlDbType.Image;
+                case "text":
+                    return SqlDbType.Text;
+                case "uniqueidentifier":
+                    return SqlDbType.UniqueIdentifier;
+                case "date":
+                    return SqlDbType.Date;
+                case "time":
+                    return SqlDbType.Time;
+                case "datetime2":
+                    return SqlDbType.DateTime2;
+                case "datetimeoffset":
+                    return SqlDbType.DateTimeOffset;
+                case "tinyint":
+                    return SqlDbType.TinyInt;
+                case "smallint":
+                    return SqlDbType.SmallInt;
+                case "int":
+                    return SqlDbType.Int;
+                case "smalldatetime":
+                    return SqlDbType.SmallDateTime;
+                case "real":
+                    return SqlDbType.Real;
+                case "money":
+                    return SqlDbType.Money;
+                case "datetime":
+                    return SqlDbType.DateTime;
+                case "float":
+                    return SqlDbType.Float;
+                case "sql_variant":
+                    return SqlDbType.Variant;
+                case "ntext":
+                    return SqlDbType.NText;
+                case "bit":
+                    return SqlDbType.Bit;
+                case "decimal":
+                    return SqlDbType.Decimal;
+                case "numeric":
+                    return SqlDbType.Decimal;
+                case "smallmoney":
+                    return SqlDbType.SmallMoney;
+                case "bigint":
+                    return SqlDbType.BigInt;
+                case "varbinary":
+                    return SqlDbType.VarBinary;
+                case "varchar":
+                    return SqlDbType.VarChar;
+                case "binary":
+                    return SqlDbType.Binary;
+                case "char":
+                    return SqlDbType.Char;
+                case "timestamp":
+                    return SqlDbType.Timestamp;
+                case "nvarchar":
+                    return SqlDbType.NVarChar;
+                case "sysname":
+                    return SqlDbType.NVarChar;
+                case "nchar":
+                    return SqlDbType.NChar;
+                case "hierarchyid":
+                    return SqlDbType.Udt;
+                case "geometry":
+                    return SqlDbType.Udt;
+                case "geography":
+                    return SqlDbType.Udt;
+                case "xml":
+                    return SqlDbType.Xml;
+                default:
+                    throw new Exception($"Unsupported Type: {@this}");
+            }
         }
 
         /// <summary>
