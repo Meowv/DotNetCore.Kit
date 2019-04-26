@@ -2646,6 +2646,34 @@ namespace DotNetCore.Kit
             return @this ? trueValue : falseValue;
         }
 
+        /// <summary>
+        /// ToSystemDataIsolationLevel
+        /// </summary>
+        /// <param name="isolationLevel"></param>
+        /// <returns></returns>
+        public static IsolationLevel ToSystemDataIsolationLevel(this System.Transactions.IsolationLevel isolationLevel)
+        {
+            switch (isolationLevel)
+            {
+                case System.Transactions.IsolationLevel.Chaos:
+                    return System.Data.IsolationLevel.Chaos;
+                case System.Transactions.IsolationLevel.ReadCommitted:
+                    return System.Data.IsolationLevel.ReadCommitted;
+                case System.Transactions.IsolationLevel.ReadUncommitted:
+                    return System.Data.IsolationLevel.ReadUncommitted;
+                case System.Transactions.IsolationLevel.RepeatableRead:
+                    return System.Data.IsolationLevel.RepeatableRead;
+                case System.Transactions.IsolationLevel.Serializable:
+                    return System.Data.IsolationLevel.Serializable;
+                case System.Transactions.IsolationLevel.Snapshot:
+                    return System.Data.IsolationLevel.Snapshot;
+                case System.Transactions.IsolationLevel.Unspecified:
+                    return System.Data.IsolationLevel.Unspecified;
+                default:
+                    throw new Exception("Unknown isolation level: " + isolationLevel);
+            }
+        }
+
         #region Private
 
         /// <summary>
