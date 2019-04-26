@@ -1476,9 +1476,15 @@ namespace DotNetCore.Kit
         {
             return string.IsNullOrWhiteSpace(value);
         }
+
+        /// <summary>
+        /// IsNumeric
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsNumeric(this string @this)
         {
-
+            return !Regex.IsMatch(@this, "[^0-9]");
         }
         public static bool IsUrl(this string strUrl)
         {
