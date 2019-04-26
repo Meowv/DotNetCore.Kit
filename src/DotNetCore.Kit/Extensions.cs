@@ -2279,6 +2279,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// StartOfDay
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime StartOfDay(this DateTime @this)
+        {
+            return new DateTime(@this.Year, @this.Month, @this.Day);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
