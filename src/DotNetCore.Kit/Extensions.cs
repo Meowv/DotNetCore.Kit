@@ -2175,6 +2175,27 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// SplitToLines
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static string[] SplitToLines(this string str, StringSplitOptions options)
+        {
+            return str.Split(Environment.NewLine, options);
+        }
+
+        /// <summary>
+        /// SplitToLines
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string[] SplitToLines(this string str)
+        {
+            return str.Split(Environment.NewLine);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
