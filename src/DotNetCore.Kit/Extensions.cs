@@ -2582,5 +2582,24 @@ namespace DotNetCore.Kit
         {
             return @this.ToString("F", DateTimeFormatInfo.CurrentInfo);
         }
+
+        /// <summary>
+        /// ToRelativeTime
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="includeTime"></param>
+        /// <param name="asPlusMinus"></param>
+        /// <param name="compareTo"></param>
+        /// <param name="includeSign"></param>
+        /// <returns></returns>
+        public static string ToRelativeTime(this DateTime dt, bool includeTime = true, bool asPlusMinus = false, DateTime? compareTo = null, bool includeSign = true)
+        {
+            DateTime dateTime = compareTo ?? DateTime.Now;
+            if (asPlusMinus)
+            {
+                return (dt <= dateTime) ? ToRelativeTimeSimple(dateTime - dt, includeSign ? "-" : "") : ToRelativeTimeSimple(dt - dateTime, includeSign ? "+" : "");
+            }
+            return (dt <= dateTime) ? ToRelativeTimePast(dt, dateTime, includeTime) : ToRelativeTimeFuture(dt, dateTime, includeTime);
+        }
     }
 }
