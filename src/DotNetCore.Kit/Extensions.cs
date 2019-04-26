@@ -2718,6 +2718,27 @@ namespace DotNetCore.Kit
             return HttpUtility.UrlDecode(str, e);
         }
 
+        /// <summary>
+        /// UrlEncode
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string UrlEncode(this string str)
+        {
+            return HttpUtility.UrlEncode(str);
+        }
+
+        /// <summary>
+        /// UrlEncode
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        public static string UrlEncode(this string str, Encoding e)
+        {
+            return HttpUtility.UrlEncode(str, e);
+        }
+
         #region Private
 
         /// <summary>
