@@ -2027,6 +2027,26 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Repeat
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="repeatCount"></param>
+        /// <returns></returns>
+        public static string Repeat(this string @this, int repeatCount)
+        {
+            if (@this.Length == 1)
+            {
+                return new string(@this[0], repeatCount);
+            }
+            StringBuilder stringBuilder = new StringBuilder(repeatCount * @this.Length);
+            while (repeatCount-- > 0)
+            {
+                stringBuilder.Append(@this);
+            }
+            return stringBuilder.ToString();
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
