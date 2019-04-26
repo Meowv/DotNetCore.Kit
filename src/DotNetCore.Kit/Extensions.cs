@@ -1506,13 +1506,25 @@ namespace DotNetCore.Kit
         {
             return Regex.IsMatch(str, "[A-Za-z0-9\\+\\/\\=]");
         }
+
+        /// <summary>
+        /// IsValidEmail
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool IsValidEmail(this string obj)
         {
-
+            return Regex.IsMatch(obj, "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$");
         }
+
+        /// <summary>
+        /// IsValidIP
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool IsValidIP(this string obj)
         {
-
+            return Regex.IsMatch(obj, "^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$");
         }
         public static bool IsValidMobile(string mobile)
         {
