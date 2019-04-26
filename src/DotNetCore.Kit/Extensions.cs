@@ -1396,6 +1396,7 @@ namespace DotNetCore.Kit
         {
             return obj != null && EqualityComparer<T>.Default.Equals(obj, null);
         }
+
         /// <summary>
         /// IsNotNullOrEmpty
         /// </summary>
@@ -1405,9 +1406,15 @@ namespace DotNetCore.Kit
         {
             return !string.IsNullOrEmpty(@this);
         }
+
+        /// <summary>
+        /// IsNotNullOrWhiteSpace
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsNotNullOrWhiteSpace(this string value)
         {
-
+            return !string.IsNullOrWhiteSpace(value);
         }
         public static bool IsNow(this DateTime @this)
         {
