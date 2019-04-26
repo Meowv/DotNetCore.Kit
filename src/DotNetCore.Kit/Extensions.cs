@@ -1416,9 +1416,15 @@ namespace DotNetCore.Kit
         {
             return !string.IsNullOrWhiteSpace(value);
         }
+
+        /// <summary>
+        /// IsNow
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsNow(this DateTime @this)
         {
-
+            return @this == DateTime.Now;
         }
         public static bool IsNull(this string @this)
         {
