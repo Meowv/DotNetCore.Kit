@@ -1987,6 +1987,22 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// RemoveHtmlSimple
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string RemoveHtmlSimple(this string str)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                string pattern = "<.*?>";
+                str = new Regex(pattern).Replace(str, "");
+                str = str.Replace("&nbsp;", " ");
+            }
+            return str;
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
