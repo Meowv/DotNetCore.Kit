@@ -2602,6 +2602,38 @@ namespace DotNetCore.Kit
             return (dt <= dateTime) ? ToRelativeTimePast(dt, dateTime, includeTime) : ToRelativeTimeFuture(dt, dateTime, includeTime);
         }
 
+        /// <summary>
+        /// ToRFC1123String
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static string ToRFC1123String(this DateTime @this, CultureInfo culture)
+        {
+            return @this.ToString("r", culture);
+        }
+
+        /// <summary>
+        /// ToRFC1123String
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static string ToRFC1123String(this DateTime @this, string culture)
+        {
+            return @this.ToString("r", new CultureInfo(culture));
+        }
+
+        /// <summary>
+        /// ToRFC1123String
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string ToRFC1123String(this DateTime @this)
+        {
+            return @this.ToString("r", DateTimeFormatInfo.CurrentInfo);
+        }
+
         #region Private
 
         /// <summary>
