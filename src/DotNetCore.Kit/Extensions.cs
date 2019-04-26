@@ -1310,9 +1310,17 @@ namespace DotNetCore.Kit
         {
             return type.IsGenericType;
         }
+
+        /// <summary>
+        /// IsIn<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
+        /// <param name="list"></param>
+        /// <returns></returns>
         public static bool IsIn<T>(this T item, params T[] list)
         {
-
+            return list.Contains(item);
         }
         public static bool IsMatch(this string input, string pattern)
         {
