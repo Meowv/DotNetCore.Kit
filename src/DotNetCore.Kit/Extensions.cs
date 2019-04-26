@@ -1526,9 +1526,20 @@ namespace DotNetCore.Kit
         {
             return Regex.IsMatch(obj, "^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$");
         }
+
+        /// <summary>
+        /// IsValidMobile
+        /// </summary>
+        /// <param name="mobile"></param>
+        /// <returns></returns>
         public static bool IsValidMobile(string mobile)
         {
-
+            if (mobile.IsNullOrEmpty())
+            {
+                return false;
+            }
+            mobile = mobile.Trim();
+            return Regex.IsMatch(mobile, "^(1[3|4|5|6|7|8|9])\\d{9}$", RegexOptions.IgnoreCase);
         }
         public static bool IsValidSafeSqlString(this string str)
         {
