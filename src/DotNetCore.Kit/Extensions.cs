@@ -1775,6 +1775,48 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// PageBy
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="skipCount"></param>
+        /// <param name="maxResultCount"></param>
+        /// <returns></returns>
+        public static IQueryable<T> PageBy<T>(this IQueryable<T> query, int skipCount, int maxResultCount)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            return query.Skip(skipCount).Take(maxResultCount);
+        }
+
+        /// <summary>
+        /// PageByIndex
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public static IQueryable<T> PageByIndex<T>(this IQueryable<T> query, int pageIndex, int pageSize)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            if (pageIndex <= 0)
+            {
+                pageIndex = 1;
+            }
+            if (pageSize <= 0)
+            {
+                pageSize = 20;
+            }
+            return query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
