@@ -2601,5 +2601,123 @@ namespace DotNetCore.Kit
             }
             return (dt <= dateTime) ? ToRelativeTimePast(dt, dateTime, includeTime) : ToRelativeTimeFuture(dt, dateTime, includeTime);
         }
+
+        #region Private
+
+        /// <summary>
+        /// ToRelativeTimeSimple
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <param name="sign"></param>
+        /// <returns></returns>
+        private static string ToRelativeTimeSimple(TimeSpan ts, string sign)
+        {
+            double totalSeconds = ts.TotalSeconds;
+            if (totalSeconds < 1.0)
+            {
+                return "1秒前";
+            }
+            if (totalSeconds < 60.0)
+            {
+                return sign + ts.Seconds.ToString() + "秒";
+            }
+            if (totalSeconds < 3600.0)
+            {
+                return sign + ts.Minutes.ToString() + "分钟";
+            }
+            if (totalSeconds < 86400.0)
+            {
+                return sign + ts.Hours.ToString() + "小时";
+            }
+            return ts.Days.ToString() + "天" + ((sign == "-") ? "前" : "后");
+        }
+
+        /// <summary>
+        /// ToRelativeTimePast
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="utcNow"></param>
+        /// <param name="includeTime"></param>
+        /// <returns></returns>
+        private static string ToRelativeTimePast(DateTime dt, DateTime utcNow, bool includeTime = true)
+        {
+            TimeSpan timeSpan = utcNow - dt;
+            double totalSeconds = timeSpan.TotalSeconds;
+            if (totalSeconds < 1.0)
+            {
+                return "刚刚";
+            }
+            if (totalSeconds < 60.0)
+            {
+                return (timeSpan.Seconds == 1) ? "1秒前" : (timeSpan.Seconds.ToString() + "秒前");
+            }
+            if (totalSeconds < 3600.0)
+            {
+                return (timeSpan.Minutes == 1) ? "1分钟前" : (timeSpan.Minutes.ToString() + "分钟前");
+            }
+            if (totalSeconds < 86400.0)
+            {
+                return (timeSpan.Hours == 1) ? "1小时前" : (timeSpan.Hours.ToString() + "小时前");
+            }
+            int days = timeSpan.Days;
+            if (days == 1)
+            {
+                return "昨天";
+            }
+            if (days <= 2)
+            {
+                return days.ToString() + "天前";
+            }
+            if (utcNow.Year == dt.Year)
+            {
+                return dt.ToString(includeTime ? "MM-dd HH:mm" : "MM-dd");
+            }
+            return dt.ToString(includeTime ? "yyyy-MM-dd HH:mm" : "yyyy-MM-dd");
+        }
+
+        /// <summary>
+        /// ToRelativeTimeFuture
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="utcNow"></param>
+        /// <param name="includeTime"></param>
+        /// <returns></returns>
+        private static string ToRelativeTimeFuture(DateTime dt, DateTime utcNow, bool includeTime = true)
+        {
+            TimeSpan timeSpan = dt - utcNow;
+            double totalSeconds = timeSpan.TotalSeconds;
+            if (totalSeconds < 1.0)
+            {
+                return "刚刚";
+            }
+            if (totalSeconds < 60.0)
+            {
+                return (timeSpan.Seconds == 1) ? "1秒后" : (timeSpan.Seconds.ToString() + "秒后");
+            }
+            if (totalSeconds < 3600.0)
+            {
+                return (timeSpan.Minutes == 1) ? "1分钟后" : (timeSpan.Minutes.ToString() + "分钟后");
+            }
+            if (totalSeconds < 86400.0)
+            {
+                return (timeSpan.Hours == 1) ? "1小时后" : (timeSpan.Hours.ToString() + "小时后");
+            }
+            int num = (int)Math.Round(timeSpan.TotalDays, 0);
+            if (num == 1)
+            {
+                return "明天";
+            }
+            if (num <= 10)
+            {
+                return num.ToString() + "天后" + ((num > 1) ? "s" : "");
+            }
+            if (utcNow.Year == dt.Year)
+            {
+                return dt.ToString(includeTime ? "MM-dd HH:mm" : "MM-dd");
+            }
+            return dt.ToString(includeTime ? "yyyy-MM-dd HH:mm" : "yyyy-MM-dd");
+        }
+
+        #endregion
     }
 }
