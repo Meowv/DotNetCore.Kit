@@ -2310,6 +2310,51 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ToBool
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public static bool ToBool(this object expression)
+        {
+            if (expression != null)
+            {
+                bool result;
+                try
+                {
+                    result = (bool)expression;
+                }
+                catch
+                {
+                    result = (((int)expression != 0) ? true : false);
+                }
+                return result;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// ToBool
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static bool ToBool(this string expression, bool defValue = false)
+        {
+            if (expression != null)
+            {
+                if (string.Compare(expression, "true", ignoreCase: true) == 0)
+                {
+                    return true;
+                }
+                if (string.Compare(expression, "false", ignoreCase: true) == 0)
+                {
+                    return false;
+                }
+            }
+            return defValue;
+        }
+
+        /// <summary>
         /// ToDateTime
         /// </summary>
         /// <param name="obj"></param>
