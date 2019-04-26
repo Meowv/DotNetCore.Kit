@@ -2047,6 +2047,20 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Replace
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="length"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string Replace(this string @this, int startIndex, int length, string value)
+        {
+            @this = @this.Remove(startIndex, length).Insert(startIndex, value);
+            return @this;
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
