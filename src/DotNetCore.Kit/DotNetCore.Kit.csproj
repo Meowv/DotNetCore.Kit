@@ -13,7 +13,7 @@
     <RepositoryUrl>https://github.com/Meowv/DotNetCore.Kit</RepositoryUrl>
     <PackageIconUrl>https://avatars0.githubusercontent.com/u/13010050</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>Extensions、kit、DotNetCore、qix</PackageTags>
+    <PackageTags>Extensions;kit;DotNetCore;qix</PackageTags>
     <PackageReleaseNotes>DotNetCore.Kit</PackageReleaseNotes>
     <Version>1.0.1</Version>
   </PropertyGroup>
