@@ -2003,6 +2003,18 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// RemoveLetter
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string RemoveLetter(this string @this)
+        {
+            return new string((from x in @this.ToCharArray()
+                               where !char.IsLetter(x)
+                               select x).ToArray());
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
