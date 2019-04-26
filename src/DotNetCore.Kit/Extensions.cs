@@ -2015,6 +2015,18 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// RemoveNumber
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string RemoveNumber(this string @this)
+        {
+            return new string((from x in @this.ToCharArray()
+                               where !char.IsNumber(x)
+                               select x).ToArray());
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
