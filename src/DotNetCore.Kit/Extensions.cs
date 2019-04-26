@@ -1563,6 +1563,64 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string Join(this string separator, string[] value)
+        {
+            return string.Join(separator, value);
+        }
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <param name="value"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static string Join(this string separator, string[] value, int startIndex, int count)
+        {
+            return string.Join(separator, value, startIndex, count);
+        }
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static string Join(this string separator, object[] values)
+        {
+            return string.Join(separator, values);
+        }
+
+        /// <summary>
+        /// Join<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="separator"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static string Join<T>(this string separator, IEnumerable<T> values)
+        {
+            return string.Join(separator, values);
+        }
+
+        /// <summary>
+        /// Join
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        public static string Join(this string separator, IEnumerable<string> values)
+        {
+            return string.Join(separator, values);
+        }
+
+        /// <summary>
         /// Left
         /// </summary>
         /// <param name="this"></param>
