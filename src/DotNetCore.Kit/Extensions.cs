@@ -2124,6 +2124,34 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// SaveAs
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="fileName"></param>
+        /// <param name="append"></param>
+        public static void SaveAs(this string @this, string fileName, bool append = false)
+        {
+            using (TextWriter textWriter = new StreamWriter(fileName, append))
+            {
+                textWriter.Write(@this);
+            }
+        }
+
+        /// <summary>
+        /// SaveAs
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="file"></param>
+        /// <param name="append"></param>
+        public static void SaveAs(this string @this, FileInfo file, bool append = false)
+        {
+            using (TextWriter textWriter = new StreamWriter(file.FullName, append))
+            {
+                textWriter.Write(@this);
+            }
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
