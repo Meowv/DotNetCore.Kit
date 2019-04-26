@@ -1355,10 +1355,18 @@ namespace DotNetCore.Kit
         {
             return @this.TimeOfDay < new DateTime(1995, 3, 7, 12, 0, 0).TimeOfDay;
         }
+
+        /// <summary>
+        /// IsNotEmpty
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsNotEmpty(this string @this)
         {
-
+            return @this != "";
         }
+
+
         public static bool IsNotNull(this object obj)
         {
 
