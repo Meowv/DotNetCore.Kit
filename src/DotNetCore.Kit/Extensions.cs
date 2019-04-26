@@ -1551,9 +1551,15 @@ namespace DotNetCore.Kit
         {
             return !Regex.IsMatch(str, "[-|;|,|\\/|\\(|\\)|\\[|\\]|\\}|\\{|%|@|\\*|!|\\']");
         }
+
+        /// <summary>
+        /// IsValueType
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsValueType(this Type type)
         {
-
+            return type.IsValueType;
         }
 
         /// <summary>
