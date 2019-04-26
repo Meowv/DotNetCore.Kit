@@ -2424,6 +2424,37 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ToFloat
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static float ToFloat(this object expression, float defValue = 0)
+        {
+            return expression.IfNotNull((object x) => x.ToString().ToFloat(), defValue);
+        }
+
+        /// <summary>
+        /// ToFloat
+        /// </summary>
+        /// <param name="strValue"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static float ToFloat(this string strValue, float defValue = 0)
+        {
+            if (strValue == null || strValue.Length > 10)
+            {
+                return defValue;
+            }
+            float result = defValue;
+            if (strValue != null && Regex.IsMatch(strValue, "^([-]|[0-9])[0-9]*(\\.\\w*)?$"))
+            {
+                float.TryParse(strValue, out result);
+            }
+            return result;
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
