@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.ExceptionServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -2073,6 +2074,15 @@ namespace DotNetCore.Kit
                 @this = @this.Replace(oldValue, "");
             }
             return @this;
+        }
+
+        /// <summary>
+        /// ReThrow
+        /// </summary>
+        /// <param name="exception"></param>
+        public static void ReThrow(this Exception exception)
+        {
+            ExceptionDispatchInfo.Capture(exception).Throw();
         }
 
         /// <summary>
