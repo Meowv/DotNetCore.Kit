@@ -2086,6 +2086,22 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Reverse
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string Reverse(this string @this)
+        {
+            if (@this.Length <= 1)
+            {
+                return @this;
+            }
+            char[] array = @this.ToCharArray();
+            Array.Reverse(array);
+            return new string(array);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
