@@ -1541,9 +1541,15 @@ namespace DotNetCore.Kit
             mobile = mobile.Trim();
             return Regex.IsMatch(mobile, "^(1[3|4|5|6|7|8|9])\\d{9}$", RegexOptions.IgnoreCase);
         }
+
+        /// <summary>
+        /// IsValidSafeSqlString
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool IsValidSafeSqlString(this string str)
         {
-
+            return !Regex.IsMatch(str, "[-|;|,|\\/|\\(|\\)|\\[|\\]|\\}|\\{|%|@|\\*|!|\\']");
         }
         public static bool IsValueType(this Type type)
         {
