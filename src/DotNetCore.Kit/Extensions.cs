@@ -4,6 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -1744,6 +1745,23 @@ namespace DotNetCore.Kit
         public static MatchCollection Matches(this string input, string pattern)
         {
             return Regex.Matches(input, pattern);
+        }
+
+        /// <summary>
+        /// Md5
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string Md5(this string str)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(str);
+            bytes = new MD5CryptoServiceProvider().ComputeHash(bytes);
+            string text = "";
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                text += bytes[i].ToString("x").PadLeft(2, '0');
+            }
+            return text;
         }
 
         /// <summary>
