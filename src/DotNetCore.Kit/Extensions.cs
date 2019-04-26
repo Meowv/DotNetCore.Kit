@@ -1345,9 +1345,15 @@ namespace DotNetCore.Kit
         {
             return Regex.IsMatch(input, pattern, options);
         }
+
+        /// <summary>
+        /// IsMorning
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsMorning(this DateTime @this)
         {
-
+            return @this.TimeOfDay < new DateTime(1995, 1, 1, 12, 0, 0).TimeOfDay;
         }
         public static bool IsNotEmpty(this string @this)
         {
