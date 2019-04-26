@@ -2299,6 +2299,17 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// To
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static T To<T>(this object obj) where T : struct
+        {
+            return (T)Convert.ChangeType(obj, typeof(T));
+        }
+
+        /// <summary>
         /// ToDateTime
         /// </summary>
         /// <param name="obj"></param>
