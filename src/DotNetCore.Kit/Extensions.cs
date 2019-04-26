@@ -1238,7 +1238,7 @@ namespace DotNetCore.Kit
         /// <returns></returns>
         public static bool IsAfternoon(this DateTime @this)
         {
-            return @this.TimeOfDay >= new DateTime(1995, 1, 1, 12, 0, 0).TimeOfDay;
+            return @this.TimeOfDay >= new DateTime(1995, 3, 7, 12, 0, 0).TimeOfDay;
         }
 
         /// <summary>
@@ -1353,7 +1353,7 @@ namespace DotNetCore.Kit
         /// <returns></returns>
         public static bool IsMorning(this DateTime @this)
         {
-            return @this.TimeOfDay < new DateTime(1995, 1, 1, 12, 0, 0).TimeOfDay;
+            return @this.TimeOfDay < new DateTime(1995, 3, 7, 12, 0, 0).TimeOfDay;
         }
         public static bool IsNotEmpty(this string @this)
         {
