@@ -1447,11 +1447,16 @@ namespace DotNetCore.Kit
             return obj == null;
         }
 
-
+        /// <summary>
+        /// IsNullableType
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsNullableType(this Type @this)
         {
-
+            return @this.IsGenericType && @this.GetGenericTypeDefinition().Equals(typeof(Nullable<>));
         }
+
         /// <summary>
         /// IsNullOrEmpty
         /// </summary>
