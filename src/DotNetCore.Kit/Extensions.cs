@@ -2102,6 +2102,28 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Right
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string Right(this string @this, int length)
+        {
+            return @this.RightSafe(length);
+        }
+
+        /// <summary>
+        /// RightSafe
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string RightSafe(this string @this, int length)
+        {
+            return @this.Substring(Math.Max(0, @this.Length - length));
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
