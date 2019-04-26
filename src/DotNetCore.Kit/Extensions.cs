@@ -2518,5 +2518,37 @@ namespace DotNetCore.Kit
             }
             return list;
         }
+
+        /// <summary>
+        /// ToLongDateString
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static string ToLongDateString(this DateTime @this, CultureInfo culture)
+        {
+            return @this.ToString("D", culture);
+        }
+
+        /// <summary>
+        /// ToLongDateString
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string ToLongDateString(this DateTime @this)
+        {
+            return @this.ToString("D", DateTimeFormatInfo.CurrentInfo);
+        }
+
+        /// <summary>
+        /// ToLongDateString
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static string ToLongDateString(this DateTime @this, string culture)
+        {
+            return @this.ToString("D", new CultureInfo(culture));
+        }
     }
 }
