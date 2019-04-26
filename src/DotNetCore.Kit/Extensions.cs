@@ -1643,6 +1643,64 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Locking<T, TResult>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public static TResult Locking<T, TResult>(this T source, Func<T, TResult> func) where T : class
+        {
+            lock (source)
+            {
+                return func(source);
+            }
+        }
+
+        /// <summary>
+        /// Locking<TResult>
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public static TResult Locking<TResult>(this object source, Func<TResult> func)
+        {
+            lock (source)
+            {
+                return func();
+            }
+        }
+
+        /// <summary>
+        /// Locking<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="action"></param>
+        public static void Locking<T>(this T source, Action<T> action) where T : class
+        {
+            lock (source)
+            {
+                action(source);
+            }
+        }
+
+        /// <summary>
+        /// Locking
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="action"></param>
+        public static void Locking(this object source, Action action)
+        {
+            lock (source)
+            {
+                action();
+            }
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
