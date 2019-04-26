@@ -1782,7 +1782,58 @@ namespace DotNetCore.Kit
         /// <param name="skipCount"></param>
         /// <param name="maxResultCount"></param>
         /// <returns></returns>
-        public static IQueryable<T> PageBy<T>(this IQueryable<T> query, int skipCount, int maxResultCount)
+        public static IEnumerable<T> PageBy<T>(this IEnumerable<T> query, int skipCount, int maxResultCount)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            return query.Skip(skipCount).Take(maxResultCount);
+        }
+
+        /// <summary>
+        /// PageBy
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="skipCount"></param>
+        /// <param name="maxResultCount"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> PageBy<T>(this IList<T> query, int skipCount, int maxResultCount)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            return query.Skip(skipCount).Take(maxResultCount);
+        }
+
+        /// <summary>
+        /// PageBy
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="skipCount"></param>
+        /// <param name="maxResultCount"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> PageBy<T>(this IQueryable<T> query, int skipCount, int maxResultCount)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            return query.Skip(skipCount).Take(maxResultCount);
+        }
+
+        /// <summary>
+        /// PageBy
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="skipCount"></param>
+        /// <param name="maxResultCount"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> PageBy<T>(this List<T> query, int skipCount, int maxResultCount)
         {
             if (query == null)
             {
@@ -1799,7 +1850,82 @@ namespace DotNetCore.Kit
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public static IQueryable<T> PageByIndex<T>(this IQueryable<T> query, int pageIndex, int pageSize)
+        public static IEnumerable<T> PageByIndex<T>(this IEnumerable<T> query, int pageIndex, int pageSize)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            if (pageIndex <= 0)
+            {
+                pageIndex = 1;
+            }
+            if (pageSize <= 0)
+            {
+                pageSize = 20;
+            }
+            return query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+        }
+
+        /// <summary>
+        /// PageByIndex
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> PageByIndex<T>(this IList<T> query, int pageIndex, int pageSize)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            if (pageIndex <= 0)
+            {
+                pageIndex = 1;
+            }
+            if (pageSize <= 0)
+            {
+                pageSize = 20;
+            }
+            return query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+        }
+
+        /// <summary>
+        /// PageByIndex
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> PageByIndex<T>(this IQueryable<T> query, int pageIndex, int pageSize)
+        {
+            if (query == null)
+            {
+                throw new ArgumentNullException("query");
+            }
+            if (pageIndex <= 0)
+            {
+                pageIndex = 1;
+            }
+            if (pageSize <= 0)
+            {
+                pageSize = 20;
+            }
+            return query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+        }
+
+        /// <summary>
+        /// PageByIndex
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> PageByIndex<T>(this List<T> query, int pageIndex, int pageSize)
         {
             if (query == null)
             {
