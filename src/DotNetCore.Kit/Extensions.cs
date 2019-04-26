@@ -2152,6 +2152,29 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Split
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="separator"></param>
+        /// <returns></returns>
+        public static string[] Split(this string str, string separator)
+        {
+            return str.Split(new string[1] { separator }, StringSplitOptions.None);
+        }
+
+        /// <summary>
+        /// Split
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="separator"></param>
+        /// <param name="option"></param>
+        /// <returns></returns>
+        public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None)
+        {
+            return @this.Split(new string[1] { separator }, option);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
