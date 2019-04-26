@@ -2380,6 +2380,50 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ToDecimal
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static decimal ToDecimal(this string expression, decimal defValue = 0)
+        {
+            if (string.IsNullOrEmpty(expression))
+            {
+                return defValue;
+            }
+            try
+            {
+                return Math.Round(Convert.ToDecimal(expression), 2);
+            }
+            catch
+            {
+                return defValue;
+            }
+        }
+
+        /// <summary>
+        /// ToDecimal
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static decimal ToDecimal(this object expression, decimal defValue = 0)
+        {
+            if (expression == null)
+            {
+                return defValue;
+            }
+            try
+            {
+                return Math.Round(Convert.ToDecimal(expression), 2);
+            }
+            catch
+            {
+                return defValue;
+            }
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
