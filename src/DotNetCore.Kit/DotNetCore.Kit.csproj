@@ -1,8 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>阿星Plus</Authors>
+    <Company>mewov.com</Company>
+    <Copyright>mewov.com</Copyright>
+    <NeutralLanguage />
+    <Description>DotNetCore.Kit</Description>
+    <PackageProjectUrl>https://github.com/Meowv/DotNetCore.Kit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Meowv/DotNetCore.Kit</RepositoryUrl>
+    <PackageIconUrl>https://avatars0.githubusercontent.com/u/13010050</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>extension</PackageTags>
+    <PackageReleaseNotes>DotNetCore.Kit</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>DotNetCore.Kit.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

@@ -18,7 +18,7 @@ namespace DotNetCore.Kit
     public static class Extensions
     {
         /// <summary>
-        /// AppendIf<T>
+        /// AppendIf
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -64,7 +64,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// AppendLineIf<T>
+        /// AppendLineIf
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -85,7 +85,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// As<T>
+        /// As
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -659,7 +659,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// ExistInEnum<T>
+        /// ExistInEnum
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="value"></param>
@@ -798,7 +798,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// GetAttribute<T>
+        /// GetAttribute
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="methodInfo"></param>
@@ -1109,7 +1109,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IfNotNull<TItem>
+        /// IfNotNull
         /// </summary>
         /// <typeparam name="TItem"></typeparam>
         /// <param name="item"></param>
@@ -1123,7 +1123,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IfNotNull<TResult, TItem>
+        /// IfNotNull
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
         /// <typeparam name="TItem"></typeparam>
@@ -1137,7 +1137,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IfNull<TItem>
+        /// IfNull
         /// </summary>
         /// <typeparam name="TItem"></typeparam>
         /// <param name="item"></param>
@@ -1221,7 +1221,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// InvokeSafely<TEventArgs>
+        /// InvokeSafely
         /// </summary>
         /// <typeparam name="TEventArgs"></typeparam>
         /// <param name="eventHandler"></param>
@@ -1313,7 +1313,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IsIn<T>
+        /// IsIn
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="item"></param>
@@ -1388,7 +1388,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// IsNotNullOrDefault<T>
+        /// IsNotNullOrDefault
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -1599,7 +1599,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// Join<T>
+        /// Join
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="separator"></param>
@@ -1644,7 +1644,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// Locking<T, TResult>
+        /// Locking
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <typeparam name="TResult"></typeparam>
@@ -1660,7 +1660,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// Locking<TResult>
+        /// Locking
         /// </summary>
         /// <typeparam name="TResult"></typeparam>
         /// <param name="source"></param>
@@ -1675,7 +1675,7 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
-        /// Locking<T>
+        /// Locking
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="source"></param>
