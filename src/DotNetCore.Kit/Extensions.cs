@@ -1466,9 +1466,15 @@ namespace DotNetCore.Kit
         {
             return string.IsNullOrEmpty(@this);
         }
+
+        /// <summary>
+        /// IsNullOrWhiteSpace
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsNullOrWhiteSpace(this string value)
         {
-
+            return string.IsNullOrWhiteSpace(value);
         }
         public static bool IsNumeric(this string @this)
         {
