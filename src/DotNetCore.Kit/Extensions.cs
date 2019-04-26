@@ -1943,6 +1943,50 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// RemoveHtml
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string RemoveHtml(this string @this)
+        {
+            StringBuilder stringBuilder = new StringBuilder(@this);
+            StringBuilder stringBuilder2 = new StringBuilder();
+            int num = 0;
+            while (num < stringBuilder.Length)
+            {
+                char c = stringBuilder[num];
+                num++;
+                if (c == '<')
+                {
+                    while (num < stringBuilder.Length)
+                    {
+                        c = stringBuilder[num];
+                        num++;
+                        switch (c)
+                        {
+                            case '\'':
+                                num = stringBuilder.GetIndexAfterNextSingleQuote(num, allowEscape: true);
+                                continue;
+                            case '"':
+                                num = stringBuilder.GetIndexAfterNextDoubleQuote(num, allowEscape: true);
+                                continue;
+                            default:
+                                continue;
+                            case '>':
+                                break;
+                        }
+                        break;
+                    }
+                }
+                else
+                {
+                    stringBuilder2.Append(c);
+                }
+            }
+            return stringBuilder2.ToString();
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
