@@ -1386,9 +1386,15 @@ namespace DotNetCore.Kit
             return @this != null;
         }
 
+        /// <summary>
+        /// IsNotNullOrDefault<T>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool IsNotNullOrDefault<T>(this T obj) where T : class
         {
-
+            return obj != null && EqualityComparer<T>.Default.Equals(obj, null);
         }
         /// <summary>
         /// IsNotNullOrEmpty
