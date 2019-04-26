@@ -1322,13 +1322,28 @@ namespace DotNetCore.Kit
         {
             return list.Contains(item);
         }
+
+        /// <summary>
+        /// IsMatch
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
         public static bool IsMatch(this string input, string pattern)
         {
-
+            return Regex.IsMatch(input, pattern);
         }
+
+        /// <summary>
+        /// IsMatch
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="pattern"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public static bool IsMatch(this string input, string pattern, RegexOptions options)
         {
-
+            return Regex.IsMatch(input, pattern, options);
         }
         public static bool IsMorning(this DateTime @this)
         {
