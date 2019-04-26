@@ -2697,6 +2697,27 @@ namespace DotNetCore.Kit
             return value;
         }
 
+        /// <summary>
+        /// UrlDecode
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string UrlDecode(this string str)
+        {
+            return HttpUtility.UrlDecode(str);
+        }
+
+        /// <summary>
+        /// UrlDecode
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        public static string UrlDecode(this string str, Encoding e)
+        {
+            return HttpUtility.UrlDecode(str, e);
+        }
+
         #region Private
 
         /// <summary>
