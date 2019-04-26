@@ -2550,5 +2550,37 @@ namespace DotNetCore.Kit
         {
             return @this.ToString("D", new CultureInfo(culture));
         }
+
+        /// <summary>
+        /// ToLongDateTimeString
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static string ToLongDateTimeString(this DateTime @this, CultureInfo culture)
+        {
+            return @this.ToString("F", culture);
+        }
+
+        /// <summary>
+        /// ToLongDateTimeString
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
+        public static string ToLongDateTimeString(this DateTime @this, string culture)
+        {
+            return @this.ToString("F", new CultureInfo(culture));
+        }
+
+        /// <summary>
+        /// ToLongDateTimeString
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string ToLongDateTimeString(this DateTime @this)
+        {
+            return @this.ToString("F", DateTimeFormatInfo.CurrentInfo);
+        }
     }
 }
