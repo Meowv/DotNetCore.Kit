@@ -2299,6 +2299,31 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ToDateTime
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static DateTime ToDateTime(this object obj)
+        {
+            return obj.ToString().StrToDateTime();
+        }
+
+        /// <summary>
+        /// ToDateTime
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="defValue"></param>
+        /// <returns></returns>
+        public static DateTime ToDateTime(this string str, DateTime defValue)
+        {
+            if (!string.IsNullOrEmpty(str) && DateTime.TryParse(str, out DateTime result))
+            {
+                return result;
+            }
+            return defValue;
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
