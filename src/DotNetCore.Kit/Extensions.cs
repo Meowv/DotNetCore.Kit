@@ -1724,6 +1724,29 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// Matches
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="pattern"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        public static MatchCollection Matches(this string input, string pattern, RegexOptions options)
+        {
+            return Regex.Matches(input, pattern, options);
+        }
+
+        /// <summary>
+        /// Matches
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
+        public static MatchCollection Matches(this string input, string pattern)
+        {
+            return Regex.Matches(input, pattern);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
