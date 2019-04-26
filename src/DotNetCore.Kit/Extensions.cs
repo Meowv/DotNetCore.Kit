@@ -1366,15 +1366,26 @@ namespace DotNetCore.Kit
             return @this != "";
         }
 
-
+        /// <summary>
+        /// IsNotNull
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static bool IsNotNull(this object obj)
         {
-
+            return obj != null;
         }
+
+        /// <summary>
+        /// IsNotNull
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
         public static bool IsNotNull(this string @this)
         {
-
+            return @this != null;
         }
+
         public static bool IsNotNullOrDefault<T>(this T obj) where T : class
         {
 
