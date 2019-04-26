@@ -2634,6 +2634,18 @@ namespace DotNetCore.Kit
             return @this.ToString("r", DateTimeFormatInfo.CurrentInfo);
         }
 
+        /// <summary>
+        /// ToString
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="trueValue"></param>
+        /// <param name="falseValue"></param>
+        /// <returns></returns>
+        public static string ToString(this bool @this, string trueValue, string falseValue)
+        {
+            return @this ? trueValue : falseValue;
+        }
+
         #region Private
 
         /// <summary>
