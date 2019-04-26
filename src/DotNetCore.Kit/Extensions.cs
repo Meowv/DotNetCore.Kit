@@ -2289,6 +2289,16 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// StrToDateTime
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static DateTime StrToDateTime(this string str)
+        {
+            return str.ToDateTime(DateTime.Now);
+        }
+
+        /// <summary>
         /// ToInt
         /// </summary>
         /// <param name="expression"></param>
