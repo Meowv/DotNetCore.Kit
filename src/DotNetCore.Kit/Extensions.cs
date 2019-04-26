@@ -1486,13 +1486,25 @@ namespace DotNetCore.Kit
         {
             return !Regex.IsMatch(@this, "[^0-9]");
         }
+
+        /// <summary>
+        /// IsUrl
+        /// </summary>
+        /// <param name="strUrl"></param>
+        /// <returns></returns>
         public static bool IsUrl(this string strUrl)
         {
-
+            return Regex.IsMatch(strUrl, "^(http|https)\\://([a-zA-Z0-9\\.\\-]+(\\:[a-zA-Z0-9\\.&%\\$\\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\\-]+\\.)*[a-zA-Z0-9\\-]+\\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{1,10}))(\\:[0-9]+)*(/($|[a-zA-Z0-9\\.\\,\\?\\'\\\\\\+&%\\$#\\=~_\\-]+))*$");
         }
+
+        /// <summary>
+        /// IsValidBase64String
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static bool IsValidBase64String(this string str)
         {
-
+            return Regex.IsMatch(str, "[A-Za-z0-9\\+\\/\\=]");
         }
         public static bool IsValidEmail(this string obj)
         {
