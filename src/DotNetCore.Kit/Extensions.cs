@@ -511,6 +511,27 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// DistinctByData:根据集合中指定的列过滤重复,并返回指定的列
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public static IEnumerable<TResult> DistinctByData<T, TResult>(this IEnumerable<T> source, Func<T, TResult> where)
+        {
+            HashSet<TResult> hashSetData = new HashSet<TResult>();
+            foreach (T item in source)
+            {
+                var result = where(item);
+                if (hashSetData.Add(result))
+                {
+                    yield return result;
+                }
+            }
+        }
+
+        /// <summary>
         /// Elapsed
         /// </summary>
         /// <param name="startTime"></param>
