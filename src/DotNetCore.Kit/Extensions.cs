@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Globalization;
 using System.IO;
@@ -2425,6 +2426,28 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ToDescripttion:针对Enum类型添加扩展方法，并使用反射读取当前枚举值所对应的显示值
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static string ToDescripttion(this Enum val)
+        {
+            var type = val.GetType();
+
+            var memberInfo = type.GetMember(val.ToString());
+
+            var attributes = memberInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+            if (attributes == null || attributes.Length != 1)
+            {
+                //如果没有自定义描述，就把当前枚举值的对应名称返回
+                return val.ToString();
+            }
+
+            return (attributes.Single() as DescriptionAttribute).Description;
+        }
+
+        /// <summary>
         /// ToFloat
         /// </summary>
         /// <param name="expression"></param>
@@ -2657,19 +2680,19 @@ namespace DotNetCore.Kit
             switch (isolationLevel)
             {
                 case System.Transactions.IsolationLevel.Chaos:
-                    return System.Data.IsolationLevel.Chaos;
+                    return IsolationLevel.Chaos;
                 case System.Transactions.IsolationLevel.ReadCommitted:
-                    return System.Data.IsolationLevel.ReadCommitted;
+                    return IsolationLevel.ReadCommitted;
                 case System.Transactions.IsolationLevel.ReadUncommitted:
-                    return System.Data.IsolationLevel.ReadUncommitted;
+                    return IsolationLevel.ReadUncommitted;
                 case System.Transactions.IsolationLevel.RepeatableRead:
-                    return System.Data.IsolationLevel.RepeatableRead;
+                    return IsolationLevel.RepeatableRead;
                 case System.Transactions.IsolationLevel.Serializable:
-                    return System.Data.IsolationLevel.Serializable;
+                    return IsolationLevel.Serializable;
                 case System.Transactions.IsolationLevel.Snapshot:
-                    return System.Data.IsolationLevel.Snapshot;
+                    return IsolationLevel.Snapshot;
                 case System.Transactions.IsolationLevel.Unspecified:
-                    return System.Data.IsolationLevel.Unspecified;
+                    return IsolationLevel.Unspecified;
                 default:
                     throw new Exception("Unknown isolation level: " + isolationLevel);
             }
