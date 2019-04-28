@@ -532,6 +532,22 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ConvertToList:把LinqGroupBy结果转换成指定的集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public static IEnumerable<TResult> ConvertToList<T, TResult>(this IEnumerable<T> source, Func<T, TResult> where)
+        {
+            foreach (T item in source)
+            {
+                yield return where(item);
+            }
+        }
+
+        /// <summary>
         /// Elapsed
         /// </summary>
         /// <param name="startTime"></param>
