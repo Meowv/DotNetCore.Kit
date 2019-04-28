@@ -147,6 +147,8 @@ namespace DotNetCore.Kit
 
         #endregion
 
+        #region B
+
         /// <summary>
         /// Between
         /// </summary>
@@ -168,6 +170,10 @@ namespace DotNetCore.Kit
         {
             return @this.Replace("<br />", "\r\n").Replace("<br>", "\r\n");
         }
+
+        #endregion
+
+        #region C
 
         /// <summary>
         /// CombineApiUrl
@@ -490,6 +496,10 @@ namespace DotNetCore.Kit
             }
         }
 
+        #endregion
+
+        #region D
+
         /// <summary>
         /// DecodeBase64
         /// </summary>
@@ -550,6 +560,10 @@ namespace DotNetCore.Kit
                 }
             }
         }
+
+        #endregion
+
+        #region E
 
         /// <summary>
         /// Elapsed
@@ -789,6 +803,10 @@ namespace DotNetCore.Kit
             return result;
         }
 
+        #endregion
+
+        #region F
+
         /// <summary>
         /// For
         /// </summary>
@@ -895,6 +913,10 @@ namespace DotNetCore.Kit
         {
             return string.Format(@this, arg0);
         }
+
+        #endregion
+
+        #region G
 
         /// <summary>
         /// GetAssembly
@@ -1193,6 +1215,10 @@ namespace DotNetCore.Kit
             }
         }
 
+        #endregion
+
+        #region H
+
         /// <summary>
         /// HtmlDecode
         /// </summary>
@@ -1232,6 +1258,10 @@ namespace DotNetCore.Kit
         {
             HttpUtility.HtmlEncode(s, output);
         }
+
+        #endregion
+
+        #region I
 
         /// <summary>
         /// IfFalse
@@ -1719,6 +1749,10 @@ namespace DotNetCore.Kit
             return type.IsValueType;
         }
 
+        #endregion
+
+        #region J
+
         /// <summary>
         /// Join
         /// </summary>
@@ -1776,6 +1810,10 @@ namespace DotNetCore.Kit
         {
             return string.Join(separator, values);
         }
+
+        #endregion
+
+        #region L
 
         /// <summary>
         /// Left
@@ -1857,6 +1895,10 @@ namespace DotNetCore.Kit
             }
         }
 
+        #endregion
+
+        #region M
+
         /// <summary>
         /// Match
         /// </summary>
@@ -1920,6 +1962,10 @@ namespace DotNetCore.Kit
             return text;
         }
 
+        #endregion
+
+        #region N
+
         /// <summary>
         /// Nl2Br
         /// </summary>
@@ -1929,6 +1975,10 @@ namespace DotNetCore.Kit
         {
             return @this.Replace("\r\n", "<br />").Replace("\n", "<br />");
         }
+
+        #endregion
+
+        #region P
 
         /// <summary>
         /// PageBy
@@ -2097,6 +2147,10 @@ namespace DotNetCore.Kit
             }
             return query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
         }
+
+        #endregion
+
+        #region R
 
         /// <summary>
         /// RemoveHtml
@@ -2278,6 +2332,10 @@ namespace DotNetCore.Kit
             return @this.Substring(Math.Max(0, @this.Length - length));
         }
 
+        #endregion
+
+        #region S
+
         /// <summary>
         /// SaveAs
         /// </summary>
@@ -2451,6 +2509,10 @@ namespace DotNetCore.Kit
         {
             return str.ToDateTime(DateTime.Now);
         }
+
+        #endregion
+
+        #region T
 
         /// <summary>
         /// To
@@ -2902,6 +2964,10 @@ namespace DotNetCore.Kit
             return value;
         }
 
+        #endregion
+
+        #region U
+
         /// <summary>
         /// UrlDecode
         /// </summary>
@@ -2944,6 +3010,10 @@ namespace DotNetCore.Kit
             return HttpUtility.UrlEncode(str, e);
         }
 
+        #endregion
+
+        #region W
+
         /// <summary>
         /// WhereIf
         /// </summary>
@@ -2985,6 +3055,8 @@ namespace DotNetCore.Kit
                     yield return item;
             }
         }
+
+        #endregion
 
         #region Private
 
