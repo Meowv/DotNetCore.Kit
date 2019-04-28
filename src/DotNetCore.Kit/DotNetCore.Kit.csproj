@@ -13,9 +13,9 @@
     <RepositoryUrl>https://github.com/Meowv/DotNetCore.Kit</RepositoryUrl>
     <PackageIconUrl>https://avatars0.githubusercontent.com/u/13010050</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>kit;qix;extension</PackageTags>
+    <PackageTags>kit;qix;extension;dotnetcore</PackageTags>
     <PackageReleaseNotes>DotNetCore.Kit</PackageReleaseNotes>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
