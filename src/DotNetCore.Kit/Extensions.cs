@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,6 +98,25 @@ namespace DotNetCore.Kit
         public static T As<T>(this object obj) where T : class
         {
             return (T)obj;
+        }
+
+        /// <summary>
+        /// ArrayToString:把数组转为逗号连接的字符串
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>
+        public static string ArrayToString(this IEnumerable collection)
+        {
+            string resStr = "";
+            foreach (var item in collection)
+            {
+                if (resStr != "")
+                {
+                    resStr += ",";
+                }
+                resStr += item;
+            }
+            return resStr;
         }
 
         /// <summary>
