@@ -22,6 +22,8 @@ namespace DotNetCore.Kit
     /// </summary>
     public static class Extensions
     {
+        #region A
+
         /// <summary>
         /// AppendIf
         /// </summary>
@@ -142,6 +144,8 @@ namespace DotNetCore.Kit
             }
             return resStr;
         }
+
+        #endregion
 
         /// <summary>
         /// Between
