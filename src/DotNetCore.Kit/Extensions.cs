@@ -471,6 +471,22 @@ namespace DotNetCore.Kit
         }
 
         /// <summary>
+        /// ConvertToList:把LinqGroupBy结果转换成指定的集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public static IEnumerable<TResult> ConvertToList<T, TResult>(this IEnumerable<T> source, Func<T, TResult> where)
+        {
+            foreach (T item in source)
+            {
+                yield return where(item);
+            }
+        }
+
+        /// <summary>
         /// DecodeBase64
         /// </summary>
         /// <param name="this"></param>
@@ -529,21 +545,21 @@ namespace DotNetCore.Kit
                     yield return result;
                 }
             }
-        }
+        }        
 
         /// <summary>
-        /// ConvertToList:把LinqGroupBy结果转换成指定的集合
+        /// WhereFilter:通过指定表达式过滤集合
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <typeparam name="TResult"></typeparam>
         /// <param name="source"></param>
         /// <param name="where"></param>
         /// <returns></returns>
-        public static IEnumerable<TResult> ConvertToList<T, TResult>(this IEnumerable<T> source, Func<T, TResult> where)
+        public static IEnumerable<T> WhereFilter<T>(this IEnumerable<T> source, Func<T, bool> where)
         {
             foreach (T item in source)
             {
-                yield return where(item);
+                if (where(item))
+                    yield return item;
             }
         }
 
