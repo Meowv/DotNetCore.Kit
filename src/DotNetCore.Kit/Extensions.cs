@@ -545,22 +545,6 @@ namespace DotNetCore.Kit
                     yield return result;
                 }
             }
-        }        
-
-        /// <summary>
-        /// WhereFilter:通过指定表达式过滤集合
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="where"></param>
-        /// <returns></returns>
-        public static IEnumerable<T> WhereFilter<T>(this IEnumerable<T> source, Func<T, bool> where)
-        {
-            foreach (T item in source)
-            {
-                if (where(item))
-                    yield return item;
-            }
         }
 
         /// <summary>
@@ -1183,6 +1167,25 @@ namespace DotNetCore.Kit
                     Item = c,
                     Children = collection.GenerateTree(idSelector, parentIdSelector, idSelector(c))
                 };
+            }
+        }
+
+        /// <summary>
+        /// GetArrayValue:通过索引获取数组元素
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static T GetArrayValue<T>(this object[] array, int index)
+        {
+            try
+            {
+                return (T)Convert.ChangeType(array[index], typeof(T));
+            }
+            catch
+            {
+                return default;
             }
         }
 
@@ -2961,6 +2964,22 @@ namespace DotNetCore.Kit
         public static IQueryable<T> WhereIf<T>(this IQueryable<T> query, bool condition, Expression<Func<T, bool>> predicate)
         {
             return condition ? query.Where(predicate) : query;
+        }
+
+        /// <summary>
+        /// WhereFilter:通过指定表达式过滤集合
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> WhereFilter<T>(this IEnumerable<T> source, Func<T, bool> where)
+        {
+            foreach (T item in source)
+            {
+                if (where(item))
+                    yield return item;
+            }
         }
 
         #region Private
