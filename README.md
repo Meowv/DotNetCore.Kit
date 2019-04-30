@@ -42,3 +42,26 @@
 
 ##### v1.0.0
 - 在工作中，有很多帮助类，每次都要重复去写或者copy到新项目中，于是就有了```DotNetCore.Kit```的第一个版本
+
+----
+
+# ```DotNetCore.Kit.Captcha```
+
+### ```.NET Core``` 生成图片验证码
+
+#### Package Manager
+```PM> Install-Package DotNetCore.Kit.Captcha```
+
+#### .NET CLI
+```> dotnet add package DotNetCore.Kit.Captcha```
+
+#### PackageReference
+```<PackageReference Include="DotNetCore.Kit.Captcha" />```
+
+#### Paket CLI
+```> paket add DotNetCore.Kit.Captcha```
+
+#### Versions
+##### v1.0.0
+- 基于 System.Drawing.Common 生成图片验证码
+- 可以自定义验证码长度和验证码图片宽高
