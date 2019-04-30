@@ -2,7 +2,7 @@
 
 ### ```.NET Core``` 开发工具包扩展方法大全
 
-### 注：很多方法来源于网络，将其改为 Extension，虽已自测，但还是酌情使用。
+#### 注：很多方法来源于网络，将其改为 Extension，虽已自测但还是酌情使用远离996。
 
 #### Package Manager
 ```PM> Install-Package DotNetCore.Kit```
