@@ -1389,6 +1389,20 @@ public static class Extensions
         }
     }
 
+    /// <summary>
+    /// GetOrDefault
+    /// </summary>
+    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="TValue"></typeparam>
+    /// <param name="dictionary"></param>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
+    {
+        TValue value;
+        return dictionary.TryGetValue(key, out value) ? value : default;
+    }
+
     #endregion
 
     #region H
