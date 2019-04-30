@@ -912,6 +912,94 @@ public static class Extensions
         return string.Format(@this, arg0);
     }
 
+    /// <summary>
+    /// FormatTo
+    /// </summary>
+    /// <param name="this"></param>
+    /// <param name="packageStr"></param>
+    /// <param name="segmentStr"></param>
+    /// <returns></returns>
+    public static string FormatTo(this string[] @this, string packageStr = "", string segmentStr = ",")
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < @this.Length; i++)
+        {
+            stringBuilder.Append(packageStr + @this[i] + packageStr);
+            if (i < @this.Length - 1)
+            {
+                stringBuilder.Append(segmentStr);
+            }
+        }
+        return stringBuilder.ToString();
+    }
+
+    /// <summary>
+    /// FormatTo
+    /// </summary>
+    /// <param name="this"></param>
+    /// <param name="packageStr"></param>
+    /// <param name="segmentStr"></param>
+    /// <returns></returns>
+    public static string FormatTo(this int[] @this, string packageStr = "", string segmentStr = ",")
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < @this.Length; i++)
+        {
+            stringBuilder.Append(packageStr + @this[i].ToString() + packageStr);
+            if (i < @this.Length - 1)
+            {
+                stringBuilder.Append(segmentStr);
+            }
+        }
+        return stringBuilder.ToString();
+    }
+
+    /// <summary>
+    /// FormatTo
+    /// </summary>
+    /// <param name="this"></param>
+    /// <param name="packageStr"></param>
+    /// <param name="segmentStr"></param>
+    /// <returns></returns>
+    public static string FormatTo(this IList<string> @this, string packageStr = "", string segmentStr = ",")
+    {
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        @this.ForEach(delegate
+        {
+            sb.Append(packageStr + @this[i] + packageStr);
+            if (i < @this.Count - 1)
+            {
+                sb.Append(segmentStr);
+            }
+            i++;
+        });
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// FormatTo
+    /// </summary>
+    /// <param name="this"></param>
+    /// <param name="packageStr"></param>
+    /// <param name="segmentStr"></param>
+    /// <returns></returns>
+    public static string FormatTo(this IList<int> @this, string packageStr = "", string segmentStr = ",")
+    {
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        @this.ForEach(delegate
+        {
+            sb.Append(packageStr + @this[i] + packageStr);
+            if (i < @this.Count - 1)
+            {
+                sb.Append(segmentStr);
+            }
+            i++;
+        });
+        return sb.ToString();
+    }
+
     #endregion
 
     #region G
