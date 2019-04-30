@@ -2972,6 +2972,21 @@ public static class Extensions
     }
 
     /// <summary>
+    /// ToIntList
+    /// </summary>
+    /// <param name="this"></param>
+    /// <returns></returns>
+    public static List<int> ToIntList(this string[] @this)
+    {
+        List<int> result = new List<int>();
+        @this.ForEach(delegate (string s)
+        {
+            result.Add(Extensions.ToInt(s, 0));
+        });
+        return result;
+    }
+
+    /// <summary>
     /// ToList
     /// </summary>
     /// <param name="input"></param>
