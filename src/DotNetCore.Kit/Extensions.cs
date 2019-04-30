@@ -2700,6 +2700,40 @@ public static class Extensions
     }
 
     /// <summary>
+    /// ToArray
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    /// <returns></returns>
+    public static string[] ToArray<T>(this IList<T> @this, Func<T, string> func)
+    {
+        string[] array = new string[@this.Count];
+        for (int i = 0; i < @this.Count; i++)
+        {
+            array[i] = func(@this[i]);
+        }
+        return array;
+    }
+
+    /// <summary>
+    /// ToArray
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    /// <returns></returns>
+    public static int[] ToArray<T>(this IList<T> @this, Func<T, int> func)
+    {
+        int[] array = new int[@this.Count];
+        for (int i = 0; i < @this.Count; i++)
+        {
+            array[i] = func(@this[i]);
+        }
+        return array;
+    }
+
+    /// <summary>
     /// ToBool
     /// </summary>
     /// <param name="expression"></param>
