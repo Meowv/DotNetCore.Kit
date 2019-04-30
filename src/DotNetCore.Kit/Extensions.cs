@@ -23,6 +23,27 @@ public static class Extensions
     #region A
 
     /// <summary>
+    /// AddIfNotContains
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="source"></param>
+    /// <param name="item"></param>
+    /// <returns></returns>
+    public static bool AddIfNotContains<T>(this ICollection<T> source, T item)
+    {
+        if (source.IsNotNullOrEmpty())
+        {
+            if (source.Contains(item))
+            {
+                return false;
+            }
+            source.Add(item);
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
     /// AppendIf
     /// </summary>
     /// <typeparam name="T"></typeparam>
