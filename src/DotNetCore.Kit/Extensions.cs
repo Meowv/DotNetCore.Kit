@@ -2020,6 +2020,29 @@ public static class Extensions
         return string.Join(separator, values);
     }
 
+    /// <summary>
+    /// JoinAsString
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
+    public static string JoinAsString(this IEnumerable<string> source, string separator)
+    {
+        return string.Join(separator, source);
+    }
+
+    /// <summary>
+    /// JoinAsString
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="source"></param>
+    /// <param name="separator"></param>
+    /// <returns></returns>
+    public static string JoinAsString<T>(this IEnumerable<T> source, string separator)
+    {
+        return string.Join(separator, source);
+    }
+
     #endregion
 
     #region L
