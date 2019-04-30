@@ -3010,6 +3010,55 @@ public static class Extensions
     }
 
     /// <summary>
+    /// ToList
+    /// </summary>
+    /// <param name="this"></param>
+    /// <returns></returns>
+    public static List<string> ToList(this string[] @this)
+    {
+        List<string> result = new List<string>();
+        @this.ForEach(delegate (string s)
+        {
+            result.Add(s);
+        });
+        return result;
+    }
+
+    /// <summary>
+    /// ToList
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    /// <returns></returns>
+    public static List<string> ToList<T>(this IList<T> @this, Func<T, string> func)
+    {
+        List<string> result = new List<string>();
+        @this.ForEach(delegate (T x)
+        {
+            result.Add(func(x));
+        });
+        return result;
+    }
+
+    /// <summary>
+    /// ToList
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    /// <returns></returns>
+    public static List<int> ToList<T>(this IList<T> @this, Func<T, int> func)
+    {
+        List<int> result = new List<int>();
+        @this.ForEach(delegate (T x)
+        {
+            result.Add(func(x));
+        });
+        return result;
+    }
+
+    /// <summary>
     /// ToLongDateString
     /// </summary>
     /// <param name="this"></param>
