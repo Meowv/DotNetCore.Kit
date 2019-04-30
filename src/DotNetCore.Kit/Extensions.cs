@@ -1747,6 +1747,17 @@ public static class Extensions
     }
 
     /// <summary>
+    /// IsNotNullOrEmpty
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <returns></returns>
+    public static bool IsNotNullOrEmpty<T>(this ICollection<T> @this)
+    {
+        return @this != null && @this.Count != 0;
+    }
+
+    /// <summary>
     /// IsNotNullOrWhiteSpace
     /// </summary>
     /// <param name="value"></param>
@@ -1804,6 +1815,17 @@ public static class Extensions
     public static bool IsNullOrEmpty(this string @this)
     {
         return string.IsNullOrEmpty(@this);
+    }
+
+    /// <summary>
+    /// IsNullOrEmpty
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <returns></returns>
+    public static bool IsNullOrEmpty<T>(this ICollection<T> @this)
+    {
+        return @this == null || @this.Count == 0;
     }
 
     /// <summary>
