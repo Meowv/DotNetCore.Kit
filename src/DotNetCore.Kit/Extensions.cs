@@ -1399,8 +1399,7 @@ public static class Extensions
     /// <returns></returns>
     public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
     {
-        TValue value;
-        return dictionary.TryGetValue(key, out value) ? value : default;
+        return dictionary.TryGetValue(key, out TValue value) ? value : default;
     }
 
     #endregion
