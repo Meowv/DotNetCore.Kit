@@ -1000,6 +1000,72 @@ public static class Extensions
         return sb.ToString();
     }
 
+    /// <summary>
+    /// ForEach
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    public static void ForEach<T>(this IEnumerable<T> @this, Action<T> func)
+    {
+        if (@this != null)
+        {
+            foreach (T item in @this)
+            {
+                func(item);
+            }
+        }
+    }
+
+    /// <summary>
+    /// ForEach
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    public static void ForEach<T>(this IList<T> @this, Action<T> func)
+    {
+        if (@this.IsNotNullOrEmpty())
+        {
+            foreach (T item in @this)
+            {
+                func(item);
+            }
+        }
+    }
+
+    /// <summary>
+    /// ForEach
+    /// </summary>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    public static void ForEach(this string[] @this, Action<string> func)
+    {
+        if (@this.IsNotNullOrEmpty())
+        {
+            foreach (string obj in @this)
+            {
+                func(obj);
+            }
+        }
+    }
+
+    /// <summary>
+    /// ForEach
+    /// </summary>
+    /// <param name="this"></param>
+    /// <param name="func"></param>
+    public static void ForEach(this int[] @this, Action<int> func)
+    {
+        if (@this.IsNotNullOrEmpty())
+        {
+            foreach (int obj in @this)
+            {
+                func(obj);
+            }
+        }
+    }
+
     #endregion
 
     #region G
