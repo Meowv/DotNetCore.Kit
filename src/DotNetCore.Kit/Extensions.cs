@@ -2742,6 +2742,24 @@ public static class Extensions
         return str.ToDateTime(DateTime.Now);
     }
 
+    /// <summary>
+    /// SortByDependencies
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="source"></param>
+    /// <param name="getDependencies"></param>
+    /// <returns></returns>
+    public static List<T> SortByDependencies<T>(this IEnumerable<T> source, Func<T, IEnumerable<T>> getDependencies)
+    {
+        List<T> list = new List<T>();
+        Dictionary<T, bool> visited = new Dictionary<T, bool>();
+        foreach (T item in source)
+        {
+            SortByDependenciesVisit(item, getDependencies, list, visited);
+        }
+        return list;
+    }
+
     #endregion
 
     #region T
@@ -3543,6 +3561,37 @@ public static class Extensions
             return dt.ToString(includeTime ? "MM-dd HH:mm" : "MM-dd");
         }
         return dt.ToString(includeTime ? "yyyy-MM-dd HH:mm" : "yyyy-MM-dd");
+    }
+
+    /// <summary>
+    /// SortByDependenciesVisit
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="item"></param>
+    /// <param name="getDependencies"></param>
+    /// <param name="sorted"></param>
+    /// <param name="visited"></param>
+    private static void SortByDependenciesVisit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<T> sorted, Dictionary<T, bool> visited)
+    {
+        if (visited.TryGetValue(item, out bool value))
+        {
+            if (value)
+            {
+                throw new ArgumentException("Cyclic dependency found! Item: " + item);
+            }
+            return;
+        }
+        visited[item] = true;
+        IEnumerable<T> enumerable = getDependencies(item);
+        if (enumerable != null)
+        {
+            foreach (T item2 in enumerable)
+            {
+                SortByDependenciesVisit(item2, getDependencies, sorted, visited);
+            }
+        }
+        visited[item] = false;
+        sorted.Add(item);
     }
 
     #endregion
