@@ -122,4 +122,17 @@ public static class Extensions
     {
         return JsonConvert.DeserializeObject<T>(input.ToString());
     }
+
+    /// <summary>
+    /// DeserializeXml
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <returns></returns>
+    public static T DeserializeXml<T>(this string @this)
+    {
+        XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
+        StringReader textReader = new StringReader(@this);
+        return (T)xmlSerializer.Deserialize(textReader);
+    }
 }
