@@ -65,3 +65,31 @@
 ##### v1.0.0
 - 基于 System.Drawing.Common 生成图片验证码
 - 可以自定义验证码长度和验证码图片宽高
+
+----
+
+# ```DotNetCore.Kit.Serialization```
+
+#### Serialization Extensions
+
+#### Package Manager
+```PM> Install-Package DotNetCore.Kit.Serialization```
+
+#### .NET CLI
+```> dotnet add package DotNetCore.Kit.Serialization```
+
+#### PackageReference
+```<PackageReference Include="DotNetCore.Kit.Serialization" />```
+
+#### Paket CLI
+```> paket add DotNetCore.Kit.Serialization```
+
+#### Versions
+##### v1.0.0
+- 基于 Newtonsoft.Json 的序列化扩展方法
+- SerializeBinary
+- SerializeToJson
+- SerializeXml
+- DeserializeBinary
+- DeserializeFromJson
+- DeserializeXml
