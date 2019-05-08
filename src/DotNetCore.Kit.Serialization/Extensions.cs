@@ -69,4 +69,35 @@ public static class Extensions
             }
         }
     }
+
+    /// <summary>
+    /// DeserializeBinary
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <returns></returns>
+    public static T DeserializeBinary<T>(this string @this)
+    {
+        using (MemoryStream serializationStream = new MemoryStream(Encoding.Default.GetBytes(@this)))
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            return (T)binaryFormatter.Deserialize(serializationStream);
+        }
+    }
+
+    /// <summary>
+    /// DeserializeBinary
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="this"></param>
+    /// <param name="encoding"></param>
+    /// <returns></returns>
+    public static T DeserializeBinary<T>(this string @this, Encoding encoding)
+    {
+        using (MemoryStream serializationStream = new MemoryStream(encoding.GetBytes(@this)))
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            return (T)binaryFormatter.Deserialize(serializationStream);
+        }
+    }
 }
