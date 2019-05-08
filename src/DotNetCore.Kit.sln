@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCore.Kit", "DotNetCore.Kit\DotNetCore.Kit.csproj", "{E6B094B8-DC93-4C8D-919F-18CFDBA5C7D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCore.Kit.Captcha", "DotNetCore.Kit.Captcha\DotNetCore.Kit.Captcha.csproj", "{677C3B82-66EC-4D66-BA7B-65A77996D6AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCore.Kit.Captcha", "DotNetCore.Kit.Captcha\DotNetCore.Kit.Captcha.csproj", "{677C3B82-66EC-4D66-BA7B-65A77996D6AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCore.Kit.Serialization", "DotNetCore.Kit.Serialization\DotNetCore.Kit.Serialization.csproj", "{C8443368-FB6E-4C96-8B6C-A3D794E918B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{677C3B82-66EC-4D66-BA7B-65A77996D6AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{677C3B82-66EC-4D66-BA7B-65A77996D6AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{677C3B82-66EC-4D66-BA7B-65A77996D6AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8443368-FB6E-4C96-8B6C-A3D794E918B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8443368-FB6E-4C96-8B6C-A3D794E918B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8443368-FB6E-4C96-8B6C-A3D794E918B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8443368-FB6E-4C96-8B6C-A3D794E918B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
