@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Xml.Serialization;
 
 /// <summary>
 /// Serialization.Extensions
@@ -49,5 +50,23 @@ public static class Extensions
     public static string SerializeToJson(this object input)
     {
         return JsonConvert.SerializeObject(input);
+    }
+
+    /// <summary>
+    /// SerializeXml
+    /// </summary>
+    /// <param name="this"></param>
+    /// <returns></returns>
+    public static string SerializeXml(this object @this)
+    {
+        XmlSerializer xmlSerializer = new XmlSerializer(@this.GetType());
+        using (StringWriter stringWriter = new StringWriter())
+        {
+            xmlSerializer.Serialize(stringWriter, @this);
+            using (StringReader stringReader = new StringReader(stringWriter.GetStringBuilder().ToString()))
+            {
+                return stringReader.ReadToEnd();
+            }
+        }
     }
 }
