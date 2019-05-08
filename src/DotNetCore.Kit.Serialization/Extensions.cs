@@ -100,4 +100,26 @@ public static class Extensions
             return (T)binaryFormatter.Deserialize(serializationStream);
         }
     }
+
+    /// <summary>
+    /// DeserializeFromJson
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public static T DeserializeFromJson<T>(this string input)
+    {
+        return JsonConvert.DeserializeObject<T>(input);
+    }
+
+    /// <summary>
+    /// DeserializeFromJson
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public static T DeserializeFromJson<T>(this object input)
+    {
+        return JsonConvert.DeserializeObject<T>(input.ToString());
+    }
 }
