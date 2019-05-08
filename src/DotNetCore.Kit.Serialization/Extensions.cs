@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
@@ -38,5 +39,15 @@ public static class Extensions
             binaryFormatter.Serialize(memoryStream, @this);
             return encoding.GetString(memoryStream.ToArray());
         }
+    }
+
+    /// <summary>
+    /// SerializeToJson
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    public static string SerializeToJson(this object input)
+    {
+        return JsonConvert.SerializeObject(input);
     }
 }
