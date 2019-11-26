@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plus.Kit.DI", "src\Plus.Kit.DI\Plus.Kit.DI.csproj", "{5DDAE5AA-4FD9-471E-9865-1D6FB63D2631}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stc", "stc", "{EB74D49D-8387-4FF1-9A42-01F9E5512C38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DDAE5AA-4FD9-471E-9865-1D6FB63D2631} = {EB74D49D-8387-4FF1-9A42-01F9E5512C38}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6166CB44-8FBE-4E9D-9262-4D62EF7547AD}
